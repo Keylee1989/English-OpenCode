@@ -16,15 +16,17 @@ const OPTIONS: { value: ThemeChoice; label: string; zh: string }[] = [
 function useTheme(): [ThemeChoice, (c: ThemeChoice) => void] {
   const [choice, setChoice] = useState<ThemeChoice>(getStoredTheme());
 
+  // Apply + persist whenever the user's choice changes.
   useEffect(() => {
     applyTheme(choice);
     storeTheme(choice);
+  }, [choice]);
+
+  // Keep "system" in sync with live OS color-scheme changes.
+  useEffect(() => {
     return watchSystemTheme(() => {
       if (getStoredTheme() === "system") applyTheme("system");
     });
-    // re-subscribe is cheap; empty dep keeps one live listener keyed to latest
-    // stored theme read inside the handler.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return [choice, setChoice];
