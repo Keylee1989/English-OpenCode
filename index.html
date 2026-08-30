@@ -7,6 +7,24 @@
     <meta name="description" content="English360 GPT - 长期自适应英语学习系统（零基础 → 美式英语实用母语级）" />
     <meta name="theme-color" content="#0f172a" />
 
+    <!-- Apply the persisted theme before the bundle loads to avoid a flash of
+         the wrong appearance. Mirrors src/theme.ts (default: dark). -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("english360.theme");
+          var choice = t === "light" || t === "system" || t === "dark" ? t : "dark";
+          var effective =
+            choice === "system"
+              ? (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark")
+              : choice;
+          document.documentElement.dataset.theme = effective;
+          document.documentElement.style.colorScheme = effective;
+        } catch (e) {}
+      })();
+    </script>
+
+
     <!-- iOS PWA support -->
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />

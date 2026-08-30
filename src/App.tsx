@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { useHashRoute } from "@/router";
 import HomePage from "@/pages/HomePage";
+import ThemeToggle from "@/components/ThemeToggle";
 import { stopSpeaking } from "@/speech/tts";
 
 // Phase 12 P0-4: route-level code splitting keeps the entry bundle small.
@@ -29,6 +30,7 @@ export default function App() {
 
   return (
     <div className="app-shell">
+      <ThemeToggle />
       <main>
         {route === "home" && <HomePage onStart={() => navigate("/study")} />}
         {route !== "home" && (

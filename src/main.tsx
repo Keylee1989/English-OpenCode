@@ -3,7 +3,12 @@ import { createRoot } from "react-dom/client";
 import { registerSW } from "virtual:pwa-register";
 import App from "@/App";
 import { installGlobalErrorHandlers } from "@/core/error-log";
+import { applyStoredTheme } from "@/theme";
 import "@/styles/global.css";
+
+// Apply the persisted theme before first render to avoid a flash of the wrong
+// appearance. Provided in both main() and index.html (inline) for safety.
+applyStoredTheme();
 
 // Phase 13 P0-3: passive crash tracking (metadata only, local storage).
 installGlobalErrorHandlers();
