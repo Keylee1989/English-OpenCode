@@ -1,0 +1,36 @@
+import { v } from "@/content/vocab/builder";
+import type { VocabRow } from "@/content/vocab/types";
+
+/** Manner adverbs & degree words - precision for opinions and stories. */
+export const mannerAdverbsRows: VocabRow[] = [
+  v("politely", "/礼貌地", "/pəˈlaɪtli/", "adv.", 2, 0.2, "She politely refused a second helping.", "她婉拒了第二份食物。", "ask politely first"),
+  v("clearly", "/清楚地；显然", "/ˈklɪrli/", "adv.", 1, 0.1, "Speak clearly on the phone.", "打电话请说清楚。", "see clearly without glasses"),
+  v("quietly", "/安静地；轻声地", "/ˈkwaɪətli/", "adv.", 1, 0.1, "Close the door quietly — the baby is asleep.", "轻轻关门——宝宝睡了。", "whisper quietly"),
+  v("loudly", "/大声地；响亮地", "/ˈlaʊdli/", "adv.", 2, 0.15, "The neighbors laughed loudly all night.", "邻居们整晚大笑。", "sing loudly in the car"),
+  v("carefully", "/仔细地；小心地", "/ˈkerfəli/", "adv.", 1, 0.1, "Read the recipe carefully first.", "先仔细读菜谱。", "drive carefully in rain"),
+  v("happily", "/高兴地；乐意地", "/ˈhæpɪli/", "adv.", 1, 0.1, "She happily agreed to help.", "她欣然同意帮忙。", "live happily together"),
+  v("sadly", "/遗憾地；伤心地", "/ˈsædli/", "adv.", 2, 0.15, "Sadly, the cafe closed last month.", "遗憾的是，咖啡馆上个月关门了。", "shake your head sadly"),
+  v("angrily", "/生气地；愤怒地", "/ˈæŋɡrɪli/", "adv.", 2, 0.15, "He angrily deleted the file.", "他气得把文件删了。", "slam the door angrily"),
+  v("gently", "/温柔地；轻轻地", "/ˈdʒentli/", "adv.", 1, 0.1, "Close the lid gently so it doesn't crack.", "轻轻合上盖子，免得裂开。", "remind them gently"),
+  v("nearly", "/几乎；差不多", "/ˈnɪrli/", "adv.", 1, 0.1, "It's nearly nine — we should leave.", "快九点了——我们该走了。", "nearly half of them"),
+  v("hardly-ever", "/几乎不", "/ˈhɑːrdli/", "adv.", 2, 0.2, "I hardly ever watch live TV now.", "我现在几乎不看直播电视。", "hardly know anyone here"),
+  v("barely", "/勉强；几乎不", "/ˈberli/", "adv.", 3, 0.3, "We barely made the train.", "我们差点没赶上火车。", "barely enough time"),
+  v("mostly", "/主要地；大部分", "/ˈmoʊstli/", "adv.", 1, 0.1, "The audience was mostly students.", "观众大多是学生。", "work mostly from home"),
+  v("mainly", "/主要地", "/ˈmeɪnli/", "adv.", 2, 0.15, "The delay was mainly about weather.", "延误主要是天气原因。", "used mainly by tourists"),
+  v("slightly", "/略微；稍微", "/ˈslaɪtli/", "adv.", 2, 0.2, "Today feels slightly warmer.", "今天感觉稍暖一些。", "open the window slightly"),
+  v("somewhat", "/有几分；稍微", "/ˈsʌmwʌt/", "adv.", 4, 0.35, "The plan is somewhat risky.", "这个计划有点冒险。", "somewhat unusual"),
+  v("totally", "/完全地", "/ˈtoʊtəli/", "adv.", 1, 0.1, "That's totally fine with me.", "我完全没问题。", "totally worth it"),
+  v("completely", "/完全地；彻底地", "/kəmˈpliːtli/", "adv.", 1, 0.1, "I completely forgot about the meeting.", "我把会议忘得一干二净。", "completely understand"),
+  v("entirely", "/完全地", "/ɪnˈtaɪərli/", "adv.", 3, 0.3, "The choice is entirely yours.", "选择权完全在你。", "not entirely sure"),
+  v("partially", "/部分地", "/ˈpɑːrʃəli/", "adv.", 5, 0.45, "The road is partially blocked.", "道路被部分封堵。", "a partially refundable ticket"),
+  v("especially", "/尤其；特别", "/ɪˈspeʃəli/", "adv.", 1, 0.1, "I love fruit, especially mangoes.", "我爱水果，尤其是芒果。", "especially for beginners"),
+  v("particularly", "/特别；尤其", "/pərˈtɪkjələrli/", "adv.", 3, 0.3, "This tool is particularly useful at night.", "这个工具在夜里特别有用。", "not particularly cheap"),
+  v("gradually", "/逐渐地", "/ˈɡrædʒuəli/", "adv.", 2, 0.25, "My listening improved gradually.", "我的听力逐渐提高。", "rise gradually overnight"),
+  v("luckily", "/幸运地", "/ˈlʌkɪli/", "adv.", 2, 0.15, "Luckily, I brought an umbrella.", "幸好我带了伞。", "luckily no one was hurt"),
+  v("unfortunately", "/不幸地；遗憾地", "/ʌnˈfɔːrtʃənətli/", "adv.", 2, 0.2, "Unfortunately, the tickets sold out.", "不巧，票卖光了。", "now unfortunately unavailable"),
+  v("fortunately", "/幸运地", "/ˈfɔːrtʃənətli/", "adv.", 3, 0.25, "Fortunately, everyone got out safely.", "所幸大家都安全撤离了。", "fortunately for us"),
+  v("seriously", "/严肃地；严重地", "/ˈsɪriəsli/", "adv.", 1, 0.15, "Are you seriously considering moving?", "你真在认真考虑搬家吗？", "take the plan seriously"),
+  v("possibly", "/可能；也许", "/ˈpɑːsəbli/", "adv.", 2, 0.2, "He may possibly join us later.", "他可能会晚点和我们会合。", "quite possibly true"),
+  v("indeed", "/确实；的确", "/ɪnˈdiːd/", "adv.", 3, 0.3, "The results were indeed impressive.", "结果确实令人印象深刻。", "a friend indeed"),
+  v("instead", "/代替；反而", "/ɪnˈsted/", "adv.", 1, 0.1, "Let's walk instead.", "那我们走路去吧。", "drink tea instead"),
+];

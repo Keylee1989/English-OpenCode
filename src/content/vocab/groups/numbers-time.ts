@@ -1,0 +1,31 @@
+import { v } from "@/content/vocab/builder";
+import type { VocabRow } from "@/content/vocab/types";
+
+export const numbersTimeRows: VocabRow[] = [
+  v("zero", "/零", "/ˈzɪroʊ/", "num.", 4, 0.3, "Start from zero.", "从零开始。", "below zero"),
+  v("six", "/六", "/sɪks/", "num.", 1, 0.2, "Six eggs, please.", "请给六个鸡蛋。", "at six"),
+  v("seven", "/七", "/ˈsevn/", "num.", 1, 0.2, "Seven days a week.", "一周七天。", "seven days"),
+  v("eight", "/八", "/eɪt/", "num.", 1, 0.25, "Eight hours of sleep.", "八小时睡眠。", "at eight"),
+  v("nine", "/九", "/naɪn/", "num.", 1, 0.2, "Nine to five.", "朝九晚五。", "nine to five"),
+  v("ten", "/十", "/ten/", "num.", 1, 0.15, "Ten minutes only.", "只要十分钟。", "ten minutes"),
+  v("twenty", "/二十", "/ˈtwenti/", "num.", 1, 0.25, "Twenty dollars.", "二十美元。", "twenty percent"),
+  v("thirty", "/三十", "/ˈθɜːrti/", "num.", 1, 0.3, "I am thirty.", "我三十岁。", "thirty years old"),
+  v("hundred", "/百", "/ˈhʌndrəd/", "num.", 1, 0.3, "One hundred percent.", "百分之百。", "a hundred"),
+  v("today", "/今天", "/təˈdeɪ/", "adv./n.", 1, 0.2, "Today is Monday.", "今天是星期一。", "today only"),
+  v("tomorrow", "/明天", "/təˈmɔːroʊ/", "adv./n.", 1, 0.3, "See you tomorrow.", "明天见。", "tomorrow morning"),
+  v("yesterday", "/昨天", "/ˈjestərdeɪ/", "adv./n.", 2, 0.35, "It rained yesterday.", "昨天下雨了。", "yesterday morning"),
+  v("now", "/现在", "/naʊ/", "adv.", 1, 0.15, "Do it now.", "现在做。", "right now"),
+  v("later", "/稍后", "/ˈleɪtər/", "adv.", 1, 0.3, "See you later.", "回头见。", "see you later"),
+  v("early", "/早的；早", "/ˈɜːrli/", "adj./adv.", 1, 0.35, "I get up early.", "我起得早。", "wake up early"),
+  v("late", "/晚的；迟", "/leɪt/", "adj./adv.", 1, 0.3, "Sorry, I'm late.", "抱歉我迟到了。", "be late for"),
+  v("morning", "/早上", "/ˈmɔːrnɪŋ/", "n.", 1, 0.25, "Good morning!", "早上好！", "every morning"),
+  v("afternoon", "/下午", "/ˌæftərˈnuːn/", "n.", 1, 0.3, "This afternoon is free.", "今天下午有空。", "good afternoon"),
+  v("evening", "/傍晚；晚上", "/ˈiːvnɪŋ/", "n.", 1, 0.3, "Good evening!", "晚上好！", "every evening"),
+  v("night", "/夜晚", "/naɪt/", "n.", 1, 0.2, "Good night!", "晚安！", "last night"),
+  v("week", "/周；星期", "/wiːk/", "n.", 1, 0.25, "Once a week.", "每周一次。", "next week"),
+  v("month", "/月", "/mʌnθ/", "n.", 1, 0.3, "Twice a month.", "每月两次。", "last month"),
+  v("year", "/年", "/jɪr/", "n.", 1, 0.2, "Happy New Year!", "新年快乐！", "this year"),
+  v("hour", "/小时", "/ˈaʊər/", "n.", 1, 0.3, "One hour later.", "一小时后。", "half an hour"),
+  v("minute", "/分钟", "/ˈmɪnɪt/", "n.", 1, 0.3, "Wait a minute.", "等一下。", "just a minute"),
+  v("time", "/时间；次", "/taɪm/", "n.", 1, 0.2, "What time is it?", "几点了？", "on time"),
+];

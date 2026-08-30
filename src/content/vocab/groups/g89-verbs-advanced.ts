@@ -1,0 +1,36 @@
+import { v } from "@/content/vocab/builder";
+import type { VocabRow } from "@/content/vocab/types";
+
+/** Advanced verbs batch 1 - Day 91-120 生活高级表达 support. */
+export const verbsAdvancedRows: VocabRow[] = [
+  v("acknowledge", "/承认；致谢", "/əkˈnɑːlɪdʒ/", "v.", 5, 0.45, "She acknowledged her mistake openly.", "她公开承认了自己的错误。", "acknowledge a problem early"),
+  v("alleviate", "/减轻；缓解", "/əˈliːvieɪt/", "v.", 7, 0.65, "The new bridge alleviated downtown traffic.", "新桥缓解了市中心的交通。", "alleviate pressure on staff"),
+  v("anticipate-v", "/预期；预料", "/ænˈtɪsɪpeɪt/", "v.", 4, 0.4, "We anticipate delays during the storm.", "我们预计暴风雨期间会有延误。", "anticipate problems ahead"),
+  v("appreciate-v", "/感激；升值", "/əˈpriːʃieɪt/", "v.", 1, 0.15, "I appreciate your patience today.", "我很感激你今天的耐心。", "I would appreciate it if..."),
+  v("ascertain", "/查明；确定", "/ˌæsərˈteɪn/", "v.", 7, 0.7, "Police ascertained the cause of the crash.", "警方查明了事故原因。", "ascertain the facts first"),
+  v("assert-v", "/断言；维护", "/əˈsɜːrt/", "v.", 6, 0.6, "He asserted his innocence firmly.", "他坚决声明自己无辜。", "assert your rights calmly"),
+  v("boost-v", "/促进；增强", "/buːst/", "v./n.", 3, 0.25, "A short walk can boost your mood.", "短时间散步能改善心情。", "boost confidence levels"),
+  v("circumvent", "/绕过；规避", "/ˌsɜːrkəmˈvent/", "v.", 7, 0.7, "They circumvented the rules legally.", "他们合法地规避了规则。", "circumvent a bottleneck"),
+  v("collaborate-on", "/合作；协作", "/kəˈlæbəreɪt/", "v.", 5, 0.45, "Two departments collaborated on the launch.", "两个部门合作了这次发布。", "collaborate across teams"),
+  v("compensate-for", "/补偿；弥补", "/ˈkɑːmpenseɪt/", "v.", 5, 0.5, "Nothing compensates for lost sleep.", "什么都补不回失去的睡眠。", "compensate for the delay"),
+  v("comprehend", "/理解；领会", "/ˌkɑːmprɪˈhend/", "v.", 6, 0.55, "It took a moment to comprehend the news.", "过了一会儿才明白这消息。", "fully comprehend the scale"),
+  v("condemn-v", "/谴责；判刑", "/kənˈdem/", "v.", 6, 0.6, "Leaders condemned the attack immediately.", "领导人立即谴责了袭击。", "publicly condemn violence"),
+  v("consolidate", "/合并；巩固", "/kənˈsɑːlɪdeɪt/", "v.", 7, 0.65, "The banks consolidated their branches.", "银行合并了分支机构。", "consolidate gains slowly"),
+  v("contemplate", "/沉思；考虑", "/ˈkɑːntəmpleɪt/", "v.", 6, 0.6, "She contemplated changing careers.", "她考虑过换工作。", "contemplate a big move"),
+  v("contradict", "/反驳；与…矛盾", "/ˌkɑːntrəˈdɪkt/", "v.", 6, 0.6, "The witnesses contradicted each other.", "目击者们的说法互相矛盾。", "contradict earlier reports"),
+  v("cultivate-v", "/培养；耕种", "/ˈkʌltɪveɪt/", "v.", 5, 0.5, "Cultivate patience; results take time.", "培养耐心——成果需要时间。", "cultivate good habits"),
+  v("curb-v", "/抑制；约束", "/kɜːrb/", "v./n.", 6, 0.6, "New rules curbed reckless driving.", "新规遏制了鲁莽驾驶。", "curb spending habits"),
+  v("deteriorate", "/恶化；变坏", "/dɪˈtɪriəreɪt/", "v.", 6, 0.6, "His eyesight deteriorated rapidly.", "他的视力迅速下降。", "deteriorate over time"),
+  v("devise-v", "/设计；想出", "/dɪˈvaɪz/", "v.", 6, 0.6, "They devised a clever workaround.", "他们想出了一个巧妙的变通办法。", "devise a new strategy"),
+  v("differentiate", "/区分；区别对待", "/ˌdɪfəˈrenʃieɪt/", "v.", 7, 0.65, "Can you differentiate the two samples?", "你能区分这两个样品吗？", "differentiate fact from opinion"),
+  v("diminish-v", "/减少；削弱", "/dɪˈmɪnɪʃ/", "v.", 6, 0.6, "The pain diminished after treatment.", "治疗后疼痛减轻了。", "risks diminish with practice"),
+  v("discard-v", "/丢弃；抛弃", "/dɪˈskɑːrd/", "v.", 4, 0.35, "Discard expired medicine safely.", "安全处理过期药品。", "discard outdated drafts"),
+  v("elaborate-v", "/详述；精心制作", "/ɪˈlæbəreɪt/", "v./adj.", 6, 0.6, "Could you elaborate on that point?", "你能详细说说那一点吗？", "elaborate on your plan"),
+  v("elevate-v", "/提升；抬高", "/ˈelɪveɪt/", "v.", 6, 0.6, "Good posture elevates your presence.", "好体态提升你的气场。", "elevate the discussion level"),
+  v("embark-on", "/着手；从事", "/ɪmˈbɑːrk/", "v.", 7, 0.65, "They embarked on a risky venture.", "他们开始了一项冒险的事业。", "embark on a new chapter"),
+  v("emit-v", "/排放；发出", "/ɪˈmɪt/", "v.", 5, 0.5, "Cars emit carbon dioxide.", "汽车排放二氧化碳。", "emit greenhouse gases"),
+  v("enforce-rules", "/执行；强制实施", "/ɪnˈfɔːrs/", "v.", 4, 0.4, "Referees enforce the rules of play.", "裁判负责执行比赛规则。", "strictly enforce safety rules"),
+  v("engender", "/引起；产生", "/ɪnˈdʒendər/", "v.", 7, 0.7, "Trust engenders long-term loyalty.", "信任带来长期忠诚。", "engender public trust"),
+  v("enhance-v", "/提高；增强", "/ɪnˈhæns/", "v.", 3, 0.3, "Spices enhance simple dishes.", "香料让简单的菜更美味。", "enhance product quality"),
+  v("estimate-v", "/估计；估算", "/ˈestɪmeɪt/", "v./n.", 2, 0.25, "Estimate the cost before agreeing.", "同意前先估算成本。", "a rough estimate"),
+];

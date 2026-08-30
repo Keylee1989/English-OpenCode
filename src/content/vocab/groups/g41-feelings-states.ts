@@ -1,0 +1,31 @@
+import { v } from "@/content/vocab/builder";
+import type { VocabRow } from "@/content/vocab/types";
+
+export const feelingsStatesRows: VocabRow[] = [
+  v("pain", "/疼痛", "/peɪn/", "n.", 1, 0.2, "No pain, no gain.", "不劳无获。", "a pain in the neckchest painpain"),
+  v("stress", "/压力", "/stres/", "n.", 1, 0.2, "Less stress, more sleep.", "少压力多睡。", "under stressstress"),
+  v("pressure", "/压力", "/ˈpreʃər/", "n.", 1, 0.25, "Work under pressure.", "在压力下工作。", "blood pressurepeer pressurepressure"),
+  v("energy", "/能量；精力", "/ˈenərdʒi/", "n.", 1, 0.2, "Morning energy!", "清晨活力！", "full of energy"),
+  v("power", "/力量；权力", "/ˈpaʊər/", "n.", 1, 0.2, "Power comes from habitsKnowledge is power.", "知识就是力量。", "stay powerfulpower"),
+  v("strength", "/力量；优势", "/streŋθ/", "n.", 1, 0.25, "Inner strength matters.", "内在力量重要。", "build strengthstrengths"),
+  v("weakness", "/弱点", "/ˈwiːknəs/", "n.", 1, 0.3, "Know your weaknesses.", "了解自己的弱点。", "a weakness for sweetsweakness"),
+  v("mood", "/心情", "/muːd/", "n.", 1, 0.2, "Good mood today!", "今天心情好！", "in a good mood"),
+  v("emotion", "/情绪", "/ɪˈmoʊʃn/", "n.", 1, 0.3, "Name your emotions.", "说出你的情绪。", "mixed emotionsemotions"),
+  v("feeling", "/感觉", "/ˈfiːlɪŋ/", "n.", 1, 0.15, "A strange feeling.", "奇怪的感觉。", "have feelings forfeelings"),
+  v("sense", "/感觉；感官", "/sens/", "n./v.", 1, 0.25, "A sense of humor helps.", "幽默感有用。", "make sensecommon sense"),
+  v("spirit", "/精神；心灵", "/ˈspɪrɪt/", "n.", 1, 0.25, "Team spirit wins.", "团队精神制胜。", "team spirit"),
+  v("mind", "/头脑；介意", "/maɪnd/", "n./v.", 1, 0.2, "Keep an open mind.", "保持开放心态。", "change your mindmind"),
+  v("thought", "/想法", "/θɔːt/", "n.", 1, 0.25, "Food for thought.", "值得思考。", "lost in thoughtthoughts"),
+  v("opinion", "/看法", "/əˈpɪnjən/", "n.", 1, 0.25, "In my opinion,", "在我看来，", "in my opinion"),
+  v("belief", "/信念", "/bɪˈliːf/", "n.", 1, 0.3, "Strong beliefs guide usHold your beliefs kindly.", "温和地坚持信念。", "beliefs"),
+  v("fashion", "/时尚；方式", "/ˈfæʃn/", "n.", 1, 0.2, "Old fashion returns.", "旧时尚回潮。", "out of fashionfashion"),
+  v("style", "/风格", "/staɪl/", "n.", 1, 0.2, "Find your style.", "找到你的风格。", "a new hairstylestyle"),
+  v("trend", "/趋势；潮流", "/trend/", "n.", 1, 0.25, "Follow the trend or lead it?", "跟随还是引领潮流？", "trending nowtrends"),
+  v("happiness", "/幸福", "/ˈhæpinəs/", "n.", 1, 0.25, "Happiness grows when sharedHappiness takes work.", "幸福需要经营。", "true happinesshappiness"),
+  v("sadness", "/悲伤", "/ˈsædnəs/", "n.", 1, 0.3, "Sadness passes too.", "悲伤也会过去。", "deep sadnesssadness"),
+  v("darkness", "/黑暗", "/ˈdɑːrknəs/", "n.", 1, 0.3, "Light after darkness.", "黑暗后有光。", "in darkness"),
+  v("kindness", "/善良", "/ˈkaɪndnəs/", "n.", 1, 0.25, "Kindness costs nothing.", "善意零成本。", "an act of kindnesskindness"),
+  v("warmth", "/温暖", "/wɔːrmθ/", "n.", 1, 0.3, "The warmth of family.", "家的温暖。", "body warmthwarmth"),
+  v("patience", "/耐心", "/ˈpeɪʃns/", "n.", 1, 0.3, "Patience pays off.", "耐心有回报。", "run out of patiencepatience"),
+  v("confidence", "/自信", "/ˈkɑːnfɪdəns/", "n.", 1, 0.25, "Confidence grows with practiceConfidence builds daily.", "自信每天积累。", "self-confidenceconfidence"),
+];

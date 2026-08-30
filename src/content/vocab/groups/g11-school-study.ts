@@ -1,0 +1,31 @@
+import { v } from "@/content/vocab/builder";
+import type { VocabRow } from "@/content/vocab/types";
+
+export const schoolStudyRows: VocabRow[] = [
+  v("classroom", "/教室", "/ˈklæsruːm/", "n.", 1, 0.2, "Our classroom is big.", "我们教室很大。", "in the classroom"),
+  v("blackboard", "/黑板", "/ˈblækbɔːrd/", "n.", 1, 0.2, "Look at the blackboard.", "看黑板。", "on the blackboard"),
+  v("desk", "/书桌", "/desk/", "n.", 1, 0.15, "Sit at your desk.", "坐在座位上。", "office deskmy desk"),
+  v("eraser", "/橡皮", "/ɪˈreɪsər/", "n.", 1, 0.2, "An eraser helpsPass me the eraser.", "把橡皮递给我。", "an eraser"),
+  v("ruler", "/尺子", "/ˈruːlər/", "n.", 1, 0.2, "Draw with a ruler.", "用尺子画。", "a ruler"),
+  v("scissors", "/剪刀", "/ˈsɪzərz/", "n.", 1, 0.2, "Use scissors carefully.", "小心用剪刀。", "a pair of scissors"),
+  v("notebook", "/笔记本", "/ˈnoʊtbʊk/", "n.", 1, 0.2, "Write it in your notebook.", "写进笔记本。", "my notebook"),
+  v("textbook", "/课本", "/ˈtekstbʊk/", "n.", 1, 0.2, "Open your textbook.", "打开课本。", "a textbook"),
+  v("page", "/页", "/peɪdʒ/", "n.", 1, 0.2, "Page ten, please.", "请翻到第十页。", "turn the page"),
+  v("word", "/单词；词", "/wɜːrd/", "n.", 1, 0.15, "Learn five words a day.", "每天学五个词。", "new wordsa new word"),
+  v("sentence", "/句子", "/ˈsentəns/", "n.", 1, 0.2, "Make a sentence.", "造个句子。", "a full sentence"),
+  v("paragraph", "/段落", "/ˈpærəɡræf/", "n.", 2, 0.3, "One paragraph only.", "只要一段。", "a short paragraph"),
+  v("essay", "/作文；文章", "/ˈeseɪ/", "n.", 3, 0.35, "Write an essay.", "写作文。", "write an essay"),
+  v("poem", "/诗", "/ˈpoʊəm/", "n.", 3, 0.3, "A short poem.", "一首短诗。", "read a poema poem"),
+  v("letter", "/信；字母", "/ˈletər/", "n.", 1, 0.2, "A letter for you.", "有你一封信。", "write a letter"),
+  v("stamp", "/邮票；盖章", "/stæmp/", "n./v.", 2, 0.25, "Need a stamp?", "要邮票吗？", "a stamp"),
+  v("library", "/图书馆", "/ˈlaɪbreri/", "n.", 1, 0.2, "Meet at the library.", "图书馆见。", "at the library"),
+  v("subject", "/科目；主题", "/ˈsʌbdʒɪkt/", "n.", 1, 0.25, "Favorite subject?", "最喜欢的科目？", "school subjectsmy favorite subject"),
+  v("math", "/数学", "/mæθ/", "n.", 1, 0.2, "Math homework tonight.", "今晚数学作业。", "do mathgood at math"),
+  v("science", "/科学", "/ˈsaɪəns/", "n.", 1, 0.2, "Science is fun!", "科学真有趣！", "science class"),
+  v("history", "/历史", "/ˈhɪstri/", "n.", 1, 0.25, "History repeats.", "历史会重演。", "history class"),
+  v("art", "/艺术；美术", "/ɑːrt/", "n.", 1, 0.2, "Art class on Friday.", "周五美术课。", "modern artart class"),
+  v("music", "/音乐", "/ˈmjuːzɪk/", "n.", 1, 0.15, "Music helps me relax.", "音乐帮我放松。", "listen to music"),
+  v("exam", "/考试", "/ɪɡˈzæm/", "n.", 1, 0.25, "Exams start Monday.", "周一开始考试。", "pass an examan exam"),
+  v("grade", "/成绩；年级", "/ɡreɪd/", "n./v.", 1, 0.25, "Good grades!", "好成绩！", "get good gradesher grade"),
+  v("homework", "/作业", "/ˈhoʊmwɜːrk/", "n.", 1, 0.2, "Finish homework first.", "先做作业。", "do homework"),
+];

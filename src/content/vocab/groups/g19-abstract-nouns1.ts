@@ -1,0 +1,33 @@
+import { v } from "@/content/vocab/builder";
+import type { VocabRow } from "@/content/vocab/types";
+
+export const abstractNouns1Rows: VocabRow[] = [
+  v("fact", "/事实", "/fækt/", "n.", 1, 0.25, "Facts matter.", "事实很重要。", "in factthe facts"),
+  v("truth", "/真相", "/truːθ/", "n.", 1, 0.3, "Tell the truth.", "说实话。", "the truth"),
+  v("secret", "/秘密", "/ˈsiːkrət/", "n./adj.", 1, 0.25, "Keep it secret.", "保密。", "top secreta secret"),
+  v("dream", "/梦；梦想", "/driːm/", "n./v.", 1, 0.2, "Follow your dreamsA big dream.", "一个远大的梦想。", "sweet dreamsa dream"),
+  v("memory", "/记忆；回忆", "/ˈmeməri/", "n.", 1, 0.3, "A happy memory.", "美好的回忆。", "good memoriesa memory"),
+  v("habit", "/习惯", "/ˈhæbɪt/", "n.", 1, 0.25, "Good habits take time.", "好习惯需要时间。", "daily habitsa habit"),
+  v("luck", "/运气", "/lʌk/", "n.", 1, 0.2, "Good luck!", "好运！", "good luck"),
+  v("chance", "/机会；可能性", "/tʃæns/", "n.", 1, 0.25, "One more chance.", "再给一次机会。", "by chancea chance"),
+  v("choice", "/选择", "/tʃɔɪs/", "n.", 1, 0.25, "Your choice.", "你决定。", "make a choicea good choice"),
+  v("decision", "/决定", "/dɪˈsɪʒn/", "n.", 1, 0.3, "A hard decision.", "艰难的决定。", "make a decision"),
+  v("reason", "/原因；理由", "/ˈriːzn/", "n.", 1, 0.25, "The reason why.", "原因在于。", "for this reasonthe reason"),
+  v("result", "/结果", "/rɪˈzʌlt/", "n.", 1, 0.25, "Check the results.", "查看结果。", "as a resultthe result"),
+  v("cause", "/原因；导致", "/kɔːz/", "n./v.", 1, 0.3, "Find the cause.", "找出原因。", "root causethe cause"),
+  v("change", "/改变；零钱", "/tʃeɪndʒ/", "v./n.", 1, 0.2, "Change starts now.", "改变从现在开始。", "small changesa change"),
+  v("difference", "/不同；差异", "/ˈdɪfrəns/", "n.", 1, 0.3, "What a difference!", "差别真大！", "make a difference"),
+  v("example", "/例子", "/ɪɡˈzæmpl/", "n.", 1, 0.2, "For example,", "例如，", "for example"),
+  v("question", "/问题；质疑", "/ˈkwestʃən/", "n./v.", 1, 0.15, "Good question.", "好问题。", "ask a question"),
+  v("answer", "/回答；答案", "/ˈænsər/", "n./v.", 1, 0.2, "I know the answer.", "我知道答案。", "know the answeranswers"),
+  v("problem", "/问题；难题", "/ˈprɑːbləm/", "n.", 1, 0.15, "No problem.", "没问题。", "solve problemsa problem"),
+  v("solution", "/解决办法", "/səˈluːʃn/", "n.", 1, 0.3, "Find a solution.", "找到办法。", "a simple solutionsolutions"),
+  v("method", "/方法", "/ˈmeθəd/", "n.", 2, 0.3, "Try another method.", "换个方法。", "teaching methodsa method"),
+  v("way", "/方法；路；方式", "/weɪ/", "n.", 1, 0.15, "A better way.", "更好的办法。", "by the way"),
+  v("step", "/步骤；一步", "/step/", "n.", 1, 0.2, "One step at a time.", "一步一步来。", "step by step"),
+  v("goal", "/目标", "/ɡoʊl/", "n.", 1, 0.2, "Set a goal.", "定个目标。", "reach your goalsa goal"),
+  v("purpose", "/目的", "/ˈpɜːrpəs/", "n.", 2, 0.3, "On purpose?", "故意的？", "on purpose"),
+  v("meaning", "/意思；意义", "/ˈmiːnɪŋ/", "n.", 1, 0.25, "The meaning of life.", "生命的意义。", "the meaning of"),
+  v("value", "/价值", "/ˈvæljuː/", "n./v.", 1, 0.3, "Family values.", "家庭价值观。", "great valuevalues"),
+  v("idea", "/主意", "/aɪˈdiːə/", "n.", 1, 0.15, "Great idea!", "好主意！", "an idea"),
+];

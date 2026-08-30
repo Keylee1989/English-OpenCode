@@ -1,0 +1,30 @@
+import { v } from "@/content/vocab/builder";
+import type { VocabRow } from "@/content/vocab/types";
+
+export const measureQualityRows: VocabRow[] = [
+  v("average", "/平均的；普通", "/ˈævərɪdʒ/", "adj./n.", 1, 0.3, "Average speed.", "平均速度。", "above averageaverage"),
+  v("medium", "/中等的", "/ˈmiːdiəm/", "adj./n.", 1, 0.25, "Medium size, please.", "请给中号。", "medium size"),
+  v("standard", "/标准；常规", "/ˈstændərd/", "n./adj.", 1, 0.3, "Standard answer firstThe standard version.", "标准版。", "standard timestandards"),
+  v("regular", "/规律的；常客的", "/ˈreɡjələr/", "adj.", 1, 0.25, "A regular customer.", "老顾客。", "a regular check-upregular"),
+  v("extreme", "/极端的", "/ɪkˈstriːm/", "adj.", 2, 0.35, "Extreme heat today.", "今天极热。", "in extreme casesextreme"),
+  v("slight", "/轻微的", "/slaɪt/", "adj.", 3, 0.35, "A slight headache.", "有点头疼。", "a slight chance"),
+  v("severe", "/严重的", "/sɪˈvɪr/", "adj.", 2, 0.4, "Severe pain.", "剧痛。", "severe weathersevere"),
+  v("mild", "/温和的", "/maɪld/", "adj.", 1, 0.3, "Mild winter this year.", "今年冬天温和。", "mild weathermild"),
+  v("rare", "/稀有的；少见的", "/rer/", "adj.", 1, 0.3, "Rare to see snow here.", "这儿少见雪。", "rare coinsrare"),
+  v("precious", "/珍贵的", "/ˈpreʃəs/", "adj.", 1, 0.3, "Precious moments.", "珍贵时刻。", "precious stonesprecious"),
+  v("valuable", "/值钱的；宝贵的", "/ˈvæljuəbl/", "adj.", 1, 0.25, "Valuable advice.", "宝贵建议。", "valuable informationvaluable"),
+  v("useless", "/没用的", "/ˈjuːsləs/", "adj.", 1, 0.25, "Useless without practiceThis map is useless.", "这张地图没用。", "useless informationuseless"),
+  v("helpful", "/有帮助的", "/ˈhelpfl/", "adj.", 1, 0.25, "Helpful tips inside.", "内附实用建议。", "be helpful tohelpful"),
+  v("dangerous", "/危险的", "/ˈdeɪndʒərəs/", "adj.", 1, 0.2, "Dangerous roads at night.", "夜间路况危险。", "highly dangerousdangerous"),
+  v("safe", "/安全的", "/seɪf/", "adj.", 1, 0.15, "Safe travels!", "一路平安！", "safe and sound"),
+  v("lucky", "/幸运的", "/ˈlʌki/", "adj.", 1, 0.2, "Lucky you!", "你真幸运！", "lucky daylucky"),
+  v("famous", "/著名的", "/ˈfeɪməs/", "adj.", 1, 0.2, "Famous for dumplings?", "以饺子闻名？", "world-famousfamous for"),
+  v("popular", "/受欢迎的", "/ˈpɑːpjələr/", "adj.", 1, 0.2, "Popular with kids.", "受孩子欢迎。", "popular with"),
+  v("unknown", "/未知的", "/ʌnˈnoʊn/", "adj.", 2, 0.3, "An unknown caller.", "未知来电。", "an unknown numberunknown"),
+  v("visible", "/可见的", "/ˈvɪzəbl/", "adj.", 2, 0.3, "Visible from space.", "太空可见。", "clearly visiblevisible"),
+  v("decent", "/不错的；体面的", "/ˈdiːsnt/", "adj.", 2, 0.3, "Decent price.", "价格公道。", "a decent mealdecent"),
+  v("fair", "/公平的；集市", "/fer/", "adj./n.", 1, 0.2, "Fair trade helps farmersFair enough.", "有道理。", "to be fairfair"),
+  v("unfair", "/不公平的", "/ˌʌnˈfer/", "adj.", 1, 0.25, "Unfair rules changeThat's unfair!", "那不公平！", "unfair treatmentunfair"),
+  v("wise", "/明智的", "/waɪz/", "adj.", 1, 0.25, "Wise words stay with usA wise choice.", "明智的选择。", "word of wisdomwise"),
+  v("foolish", "/愚蠢的", "/ˈfuːlɪʃ/", "adj.", 2, 0.3, "A foolish bet.", "愚蠢的赌注。", "feel foolishfoolish"),
+];

@@ -1,0 +1,30 @@
+import { v } from "@/content/vocab/builder";
+import type { VocabRow } from "@/content/vocab/types";
+
+export const emotionsIdeasRows: VocabRow[] = [
+  v("hate", "/讨厌；恨", "/heɪt/", "v./n.", 1, 0.2, "I hate waiting.", "我讨厌等。", "hate doinghate"),
+  v("fear", "/害怕", "/fɪr/", "n./v.", 1, 0.25, "Fear of heights.", "恐高。", "without fearfear"),
+  v("joy", "/喜悦", "/dʒɔɪ/", "n.", 2, 0.25, "Pure joy.", "纯粹的喜悦。", "full of joy"),
+  v("fun", "/乐趣；有趣", "/fʌn/", "n./adj.", 1, 0.15, "So much fun!", "太好玩了！", "for fun"),
+  v("humor", "/幽默", "/ˈhjuːmər/", "n.", 3, 0.3, "A sense of humor.", "幽默感。", "a sense of humor"),
+  v("joke", "/笑话；开玩笑", "/dʒoʊk/", "n./v.", 1, 0.2, "Tell a joke.", "讲个笑话。", "play a jokea joke"),
+  v("game", "/游戏；比赛", "/ɡeɪm/", "n.", 1, 0.15, "Play a game.", "玩游戏。", "board gamesgames"),
+  v("sport", "/运动", "/spɔːrt/", "n.", 1, 0.15, "My favorite sport.", "我最爱的运动。", "do sportssports"),
+  v("hobby", "/爱好", "/ˈhɑːbi/", "n.", 1, 0.2, "What are your hobbies?", "你有什么爱好？", "hobbies"),
+  v("interest", "/兴趣；利息", "/ˈɪntrəst/", "n./v.", 1, 0.25, "Places of interestShow your interest.", "表现出兴趣。", "interestinginterests"),
+  v("talent", "/天赋", "/ˈtælənt/", "n.", 1, 0.3, "Real talent!", "真有天赋！", "a talent for"),
+  v("skill", "/技能", "/skɪl/", "n.", 1, 0.25, "Learn new skills.", "学新技能。", "life skillsskills"),
+  v("ability", "/能力", "/əˈbɪləti/", "n.", 1, 0.3, "Reading ability grows.", "阅读能力会增长。", "abilities"),
+  v("effort", "/努力", "/ˈefərt/", "n.", 1, 0.3, "Make an effort.", "加把劲。", "make an effort"),
+  v("courage", "/勇气", "/ˈkɜːrɪdʒ/", "n.", 2, 0.3, "It takes courage.", "这需要勇气。", "the courage to"),
+  v("friendship", "/友谊", "/ˈfrendʃɪp/", "n.", 1, 0.3, "True friendship lasts.", "真友谊长存。", "a friendship"),
+  v("education", "/教育", "/ˌedʒuˈkeɪʃn/", "n.", 1, 0.25, "Education opens doors.", "教育打开大门。", "higher educationeducation"),
+  v("information", "/信息", "/ˌɪnfərˈmeɪʃn/", "n.", 1, 0.25, "More information inside.", "详情见内。", "for more informationinformation"),
+  v("attention", "/注意", "/əˈtenʃn/", "n.", 1, 0.25, "Pay attention.", "注意听。", "pay attention to"),
+  v("direction", "/方向", "/dəˈrekʃn/", "n.", 1, 0.25, "Ask for directions.", "问路。", "directions"),
+  v("action", "/行动", "/ˈækʃn/", "n.", 1, 0.25, "Actions speak louder.", "行动胜于言辞。", "take action"),
+  v("culture", "/文化", "/ˈkʌltʃər/", "n.", 1, 0.25, "Food is culture.", "饮食即文化。", "different culturesculture"),
+  v("tradition", "/传统", "/trəˈdɪʃn/", "n.", 1, 0.3, "An old tradition.", "古老的传统。", "family traditionstradition"),
+  v("custom", "/习俗；定制", "/ˈkʌstəm/", "n./adj.", 2, 0.3, "A local custom.", "当地习俗。", "local customscustoms"),
+  v("festival", "/节日", "/ˈfestɪvl/", "n.", 1, 0.2, "A spring festival.", "春天的节日。", "music festivalfestivals"),
+];

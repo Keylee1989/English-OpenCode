@@ -1,0 +1,33 @@
+import { v } from "@/content/vocab/builder";
+import type { VocabRow } from "@/content/vocab/types";
+
+export const clothesRows: VocabRow[] = [
+  v("shirt", "/衬衫", "/ʃɜːrt/", "n.", 1, 0.2, "A white shirt.", "白衬衫。", "wear a shirta clean shirt"),
+  v("pants", "/裤子", "/pænts/", "n.", 1, 0.2, "Blue pants.", "蓝裤子。", "wear pantsnew pants"),
+  v("jeans", "/牛仔裤", "/dʒiːnz/", "n.", 1, 0.15, "Jeans and a T-shirt.", "牛仔配T恤。", "wear jeansold jeans"),
+  v("skirt", "/裙子", "/skɜːrt/", "n.", 1, 0.2, "A long skirt.", "长裙。", "a skirt"),
+  v("dress", "/连衣裙；穿衣", "/dres/", "n./v.", 1, 0.2, "A red dress.", "红裙。", "dress up"),
+  v("suit", "/西装；适合", "/suːt/", "n./v.", 1, 0.25, "A dark suit.", "深色西装。", "wear a suita suit"),
+  v("coat", "/外套", "/koʊt/", "n.", 1, 0.2, "Take your coat.", "带上外套。", "winter coatput on your coat"),
+  v("jacket", "/夹克", "/ˈdʒækɪt/", "n.", 1, 0.15, "A warm jacket.", "暖和的夹克。", "a jacket"),
+  v("sweater", "/毛衣", "/ˈswetər/", "n.", 1, 0.2, "Knit a sweater.", "织毛衣。", "a wool sweatera sweater"),
+  v("sock", "/袜子", "/sɑːk/", "n.", 1, 0.15, "Two socks, always pairsWarm socks.", "暖袜子。", "warm sockssocks"),
+  v("shoe", "/鞋", "/ʃuː/", "n.", 1, 0.15, "Tie your shoes.", "系鞋带。", "sports shoesa pair of shoes"),
+  v("boot", "/靴子", "/buːt/", "n.", 2, 0.2, "Snow boots.", "雪地靴。", "rain bootsboots"),
+  v("slipper", "/拖鞋", "/ˈslɪpər/", "n.", 3, 0.25, "Slippers inside.", "室内穿拖鞋。", "house slippersslippers"),
+  v("hat", "/帽子", "/hæt/", "n.", 1, 0.15, "A sun hat.", "遮阳帽。", "wear a hata hat"),
+  v("cap", "/鸭舌帽；盖子", "/kæp/", "n.", 1, 0.15, "A baseball cap.", "棒球帽。", "a cap"),
+  v("scarf", "/围巾", "/skɑːrf/", "n.", 1, 0.2, "A wool scarf.", "羊毛围巾。", "wrap a scarfa scarf"),
+  v("glove", "/手套", "/ɡlʌv/", "n.", 2, 0.2, "Winter gloves.", "冬手套。", "a pair of gloves"),
+  v("belt", "/腰带", "/belt/", "n.", 2, 0.2, "A black belt.", "黑腰带。", "tighten the belta leather belt"),
+  v("button", "/按钮；纽扣", "/ˈbʌtn/", "n./v.", 1, 0.2, "Press the button.", "按按钮。", "push the button"),
+  v("pocket", "/口袋", "/ˈpɑːkɪt/", "n.", 1, 0.2, "Hands in pockets.", "手插兜。", "back pocketin my pocket"),
+  v("sleeve", "/袖子", "/sliːv/", "n.", 3, 0.25, "Short sleeves.", "短袖。", "long sleevesa sleeve"),
+  v("zipper", "/拉链", "/ˈzɪpər/", "n.", 3, 0.25, "Zip up your zipperZip up your coat.", "拉上外套拉链。", "zipper pocketzip up"),
+  v("fabric", "/布料", "/ˈfæbrɪk/", "n.", 3, 0.35, "Soft fabric.", "柔软的布料。", "soft fabric"),
+  v("cotton", "/棉；棉花", "/ˈkɑːtn/", "n./adj.", 1, 0.25, "100% cotton.", "全棉。", "a cotton shirt"),
+  v("wool", "/羊毛", "/wʊl/", "n.", 2, 0.25, "A wool scarf.", "羊毛围巾。", "made of woolsoft wool"),
+  v("leather", "/皮革", "/ˈleðər/", "n./adj.", 2, 0.3, "Leather shoes.", "皮鞋。", "a leather bagreal leather"),
+  v("silk", "/丝绸", "/sɪlk/", "n./adj.", 2, 0.25, "Smooth silk.", "顺滑丝绸。", "silk scarfsoft silk"),
+  v("wear", "/穿；戴；磨损", "/wer/", "v.", 1, 0.25, "Wear a helmet.", "戴头盔。", "wear glasses"),
+];

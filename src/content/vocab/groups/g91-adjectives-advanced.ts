@@ -1,0 +1,36 @@
+import { v } from "@/content/vocab/builder";
+import type { VocabRow } from "@/content/vocab/types";
+
+/** Advanced adjectives - Day 91-120 support. */
+export const adjectivesAdvancedRows: VocabRow[] = [
+  v("abundant", "/丰富的；充裕的", "/əˈbʌndənt/", "adj.", 6, 0.55, "The region has abundant sunshine.", "该地区阳光充足。", "abundant opportunities"),
+  v("adequate", "/足够的；适当的", "/ˈædɪkwət/", "adj.", 4, 0.4, "Make sure you get adequate rest.", "确保休息充分。", "adequate warning time"),
+  v("ambiguous", "/模棱两可的", "/æmˈbɪɡjuəs/", "adj.", 7, 0.65, "His answer was deliberately ambiguous.", "他的回答故意含糊其辞。", "an ambiguous reply"),
+  v("ample-space", "/充足的；宽敞的", "/ˈæmpl/", "adj.", 5, 0.5, "There is ample space for two desks.", "有足够空间放两张桌子。", "ample time to decide"),
+  v("articulate-adj", "/表达清晰的", "/ɑːrˈtɪkjulət/", "adj./v.", 6, 0.6, "She gave an articulate summary.", "她做了清晰的总结发言。", "an articulate speaker"),
+  v("authentic-adj", "/真实的；正宗的", "/ɔːˈθentɪk/", "adj.", 4, 0.35, "The restaurant serves authentic Sichuan food.", "这家餐厅做正宗川菜。", "an authentic experience"),
+  v("beneficial", "/有益的", "/ˌbenɪˈfɪʃl/", "adj.", 3, 0.3, "Regular reading is beneficial.", "经常阅读是有益的。", "mutually beneficial deal"),
+  v("coherent", "/连贯的；条理清楚的", "/koʊˈhɪrənt/", "adj.", 7, 0.65, "Keep your essay coherent and short.", "文章要连贯简短。", "a coherent argument"),
+  v("compelling-case", "/引人入胜的；有说服力的", "/kəmˈpelɪŋ/", "adj.", 6, 0.6, "She made a compelling case for remote work.", "她为远程办公给出了有力论据。", "a compelling reason"),
+  v("comprehensive-plan", "/全面的；综合的", "/ˌkɑːmprɪˈhensɪv/", "adj.", 5, 0.45, "We need a comprehensive review.", "我们需要一次全面审查。", "a comprehensive guide"),
+  v("considerable-growth", "/相当大的；可观的", "/kənˈsɪdərəbl/", "adj.", 4, 0.4, "The project needs considerable time.", "该项目需要大量时间。", "considerable progress"),
+  v("consistent-effort", "/一贯的；持续的", "/kənˈsɪstənt/", "adj.", 2, 0.25, "Consistent effort beats bursts of energy.", "持续努力胜过一时冲刺。", "consistent quality"),
+  v("contemporary-art", "/当代的；现代的", "/kənˈtempəreri/", "adj./n.", 5, 0.5, "The museum shows contemporary art.", "博物馆展出当代艺术。", "contemporary issues"),
+  v("convincing-data", "/有说服力的", "/kənˈvɪnsɪŋ/", "adj.", 3, 0.3, "That was a convincing win.", "那是一场令人信服的胜利。", "a convincing explanation"),
+  v("crucial-point", "/至关重要的", "/ˈkruːʃl/", "adj.", 3, 0.3, "Timing is crucial in negotiations.", "谈判中时机至关重要。", "play a crucial role"),
+  v("deliberate-choice", "/故意的；深思熟虑的", "/dɪˈlɪbərət/", "adj./v.", 5, 0.45, "It was a deliberate choice, not luck.", "这是刻意选择，不是运气。", "a deliberate decision"),
+  v("distinct-style", "/明显的；独特的", "/dɪˈstɪŋkt/", "adj.", 4, 0.4, "The band has a distinct sound.", "这个乐队风格独特。", "two distinct phases"),
+  v("diverse-group", "/多样的；多元的", "/daɪˈvɜːrs/", "adj.", 4, 0.4, "A diverse team sees more angles.", "多元团队看得更全面。", "a diverse range of views"),
+  v("efficient-way", "/高效的", "/ɪˈfɪʃnt/", "adj.", 2, 0.2, "Biking is an efficient way to commute.", "骑车是高效的通勤方式。", "fuel-efficient cars"),
+  v("essential-items", "/必不可少的", "/ɪˈsenfl/", "adj.", 1, 0.15, "Water is essential for life.", "水是生命必需品。", "essential information only"),
+  v("evident-reason", "/明显的；显然的", "/ˈevɪdənt/", "adj.", 5, 0.45, "Her relief was evident at once.", "她的如释重负显而易见。", "self-evident truth? use: plainly evident"),
+  v("excessive-noise", "/过度的；过多的", "/ɪkˈsesɪv/", "adj.", 4, 0.4, "Excessive sugar harms teeth.", "过量糖分伤害牙齿。", "excessive screen time"),
+  v("feasible-plan", "/可行的", "/ˈfiːzəbl/", "adj.", 7, 0.65, "Is the timeline feasible?", "这个时间表可行吗？", "a feasible alternative"),
+  v("flexible-hours", "/灵活的；柔韧的", "/ˈfleksəbl/", "adj.", 2, 0.2, "Be flexible about seating.", "座位安排灵活一点。", "flexible working hours"),
+  v("fundamental-right", "/根本的；基本的", "/ˌfʌndəˈmentl/", "adj./n.", 4, 0.4, "Trust is fundamental to teamwork.", "信任是团队合作的根本。", "a fundamental difference"),
+  v("genuine-interest", "/真诚的；非人造的", "/ˈdʒenjuɪn/", "adj.", 3, 0.3, "Show genuine curiosity about others.", "对他人表现出真正的好奇。", "a genuine concern"),
+  v("identical-twins", "/完全相同的", "/aɪˈdentɪkl/", "adj.", 3, 0.3, "The twins wore identical jackets.", "双胞胎穿着相同的夹克。", "virtually identical results"),
+  v("inevitable-change", "/不可避免的", "/ɪnˈevɪtəbl/", "adj.", 6, 0.6, "Some delays are inevitable.", "有些延误不可避免。", "the inevitable question"),
+  v("influential-figure", "/有影响力的", "/ˌɪnfluˈenʃl/", "adj.", 5, 0.5, "She is influential in local politics.", "她在本地政界很有影响力。", "an influential voice"),
+  v("innovative-design", "/创新的", "/ˈɪnəveɪtɪv/", "adj.", 5, 0.5, "They praised the innovative layout.", "他们称赞了这个创新布局。", "an innovative approach"),
+];

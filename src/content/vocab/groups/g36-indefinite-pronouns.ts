@@ -1,0 +1,30 @@
+import { v } from "@/content/vocab/builder";
+import type { VocabRow } from "@/content/vocab/types";
+
+export const indefinitePronounRows: VocabRow[] = [
+  v("something", "/某事；某物", "/ˈsʌmθɪŋ/", "pron.", 1, 0.2, "Something smells good.", "有东西好香。", "something newsomething"),
+  v("anything", "/任何事物", "/ˈeniθɪŋ/", "pron.", 1, 0.25, "Anything else?", "还要别的吗？", "if anythinganything"),
+  v("everything", "/一切", "/ˈevriθɪŋ/", "pron.", 1, 0.2, "Everything is ready.", "都准备好了。", "everything okeverything"),
+  v("nothing", "/没什么", "/ˈnʌθɪŋ/", "pron.", 1, 0.15, "Nothing happened.", "什么都没发生。", "nothing much"),
+  v("someone", "/某人", "/ˈsʌmwʌn/", "pron.", 1, 0.2, "Someone called you.", "有人打给你。", "someone else"),
+  v("anyone", "/任何人", "/ˈeniwʌn/", "pron.", 1, 0.25, "Anyone home?", "家里有人吗？", "anyone cananyone"),
+  v("everyone", "/每个人", "/ˈevriwʌn/", "pron.", 1, 0.15, "Everyone knows it.", "大家都知道。", "good morning everyoneeveryone"),
+  v("nobody", "/没人", "/ˈnoʊbədi/", "pron.", 1, 0.2, "Nobody came.", "没人来。", "nobody knows"),
+  v("somewhere", "/在某处", "/ˈsʌmwer/", "adv.", 1, 0.2, "Put it somewhere safe.", "放在安全的地方。", "somewhere warmsomewhere"),
+  v("anywhere", "/任何地方", "/ˈeniwer/", "adv.", 1, 0.2, "Sit anywhere.", "随便坐。", "not anywhereanywhere"),
+  v("everywhere", "/到处", "/ˈevriwer/", "adv.", 1, 0.15, "Water everywhere!", "到处是水！", "everyday everywhereeverywhere"),
+  v("nowhere", "/无处", "/ˈnoʊwer/", "adv.", 2, 0.2, "Nowhere to go.", "没地方去。", "out of nowherenowhere"),
+  v("each", "/每个", "/iːtʃ/", "det./pron.", 1, 0.2, "Each one matters.", "每一个都重要。", "each other"),
+  v("every", "/每一", "/ˈevri/", "det.", 1, 0.15, "Every day counts.", "每一天都重要。", "every time"),
+  v("both", "/两者都", "/boʊθ/", "det./pron.", 1, 0.2, "Both work.", "两个都行。", "both of us"),
+  v("either", "/任一；也(不)", "/ˈiːðər/", "det./pron.", 1, 0.3, "Either way works.", "哪种都行。", "either oreither"),
+  v("neither", "/两者都不", "/ˈniːðər/", "det./pron.", 1, 0.3, "Neither is right.", "两个都不对。", "neither nor"),
+  v("none", "/一个也没有", "/nʌn/", "pron.", 1, 0.25, "None left.", "一个不剩。", "none of"),
+  v("several", "/几个", "/ˈsevrəl/", "adj./det.", 1, 0.25, "Several times already.", "已经好几次了。", "several times"),
+  v("another", "/另一个", "/əˈnʌðər/", "det./pron.", 1, 0.15, "Another one, please.", "请再来一个。", "one anotheranother day"),
+  v("such", "/这样的", "/sʌtʃ/", "adj./det.", 1, 0.25, "Such fun!", "这么好玩！", "such as"),
+  v("own", "/自己的", "/oʊn/", "adj./v.", 1, 0.2, "My own room.", "我自己的房间。", "on my ownyour own"),
+  v("half", "/一半", "/hæf/", "n./det.", 1, 0.15, "Half price today.", "今天半价。", "half of it"),
+  v("piece", "/片；块", "/piːs/", "n.", 1, 0.15, "A piece of cake.", "一块蛋糕。", "a piece of"),
+  v("bit", "/一点", "/bɪt/", "n.", 1, 0.2, "A bit tired.", "有点累。", "a bit of"),
+];

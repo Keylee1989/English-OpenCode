@@ -1,0 +1,31 @@
+import { v } from "@/content/vocab/builder";
+import type { VocabRow } from "@/content/vocab/types";
+
+export const peopleRelations2Rows: VocabRow[] = [
+  v("uncle", "/叔叔；舅舅", "/ˈʌŋkl/", "n.", 1, 0.25, "My uncle drives a My uncle visits often.", "我叔叔常来串门。", "my uncle"),
+  v("aunt", "/姑姑；阿姨", "/ænt/", "n.", 1, 0.25, "My aunt bakes well.", "我姑姑烘焙很棒。", "my aunt"),
+  v("cousin", "/表（堂）兄弟姐妹", "/ˈkʌzn/", "n.", 1, 0.3, "My cousin is ten.", "我表弟十岁。", "my cousin"),
+  v("nephew", "/侄子；外甥", "/ˈnefjuː/", "n.", 4, 0.45, "Her nephew smiles.", "她侄子爱笑。", "my nephew"),
+  v("niece", "/侄女；外甥女", "/niːs/", "n.", 4, 0.45, "My niece draws well.", "我侄女画画好。", "my niece"),
+  v("relative", "/亲戚", "/ˈrelətɪv/", "n.", 2, 0.35, "Relatives visit during Relatives visited us.", "亲戚来看我们了。", "visit relatives"),
+  v("neighbor", "/邻居", "/ˈneɪbər/", "n.", 1, 0.25, "Our neighbor is friendly.", "我们邻居很友好。", "good neighbor"),
+  v("stranger", "/陌生人", "/ˈstreɪndʒər/", "n.", 2, 0.3, "Talk to Never talk to strangers.", "别跟陌生人走。", "a stranger"),
+  v("guest", "/客人", "/ɡest/", "n.", 1, 0.25, "We have guests tonight.", "今晚有客人。", "welcome our guests"),
+  v("host", "/主人；主持", "/hoʊst/", "n./v.", 2, 0.35, "The host speaks first.", "主人先说话。", "host a party"),
+  v("partner", "/伙伴；搭档", "/ˈpɑːrtnər/", "n.", 1, 0.3, "Practice with a partner.", "和搭档练习。", "business partner"),
+  v("colleague", "/同事", "/ˈkɑːliːɡ/", "n.", 2, 0.35, "My colleague helps me.", "同事帮我。", "work colleague"),
+  v("boss", "/老板", "/bɔːs/", "n.", 1, 0.2, "My boss is kind.", "老板人很好。", "ask the boss"),
+  v("employee", "/员工", "/ɪmˈplɔɪiː/", "n.", 2, 0.4, "Ten employees here.", "这里有十名员工。", "new employee"),
+  v("manager", "/经理", "/ˈmænɪdʒər/", "n.", 1, 0.25, "Talk to the manager.", "找经理谈。", "store manager"),
+  v("customer", "/顾客", "/ˈkʌstəmər/", "n.", 1, 0.25, "Customers first.", "顾客第一。", "customer service"),
+  v("member", "/成员", "/ˈmembr/", "n.", 1, 0.3, "A family member.", "家庭成员。", "team member"),
+  v("leader", "/领导者", "/ˈliːdər/", "n.", 1, 0.3, "A good leader listens.", "好领导会倾听。", "team leader"),
+  v("fan", "/粉丝；风扇", "/fæn/", "n.", 1, 0.2, "A big fan of yours!", "你的铁粉！", "music fan"),
+  v("volunteer", "/志愿者", "/ˌvɑːlənˈtɪr/", "n./v.", 3, 0.4, "Volunteers help here.", "志愿者在这里帮忙。", "volunteer work"),
+  v("expert", "/专家", "/ˈekspɜːrt/", "n./adj.", 3, 0.45, "Ask an expert.", "问专家。", "an expert"),
+  v("beginner", "/初学者", "/bɪˈɡɪnər/", "n.", 1, 0.3, "I am a beginner.", "我是初学者。", "beginner level"),
+  v("adult", "/成年人", "/ˈædʌlt/", "n./adj.", 1, 0.25, "Adults pay more.", "成人票贵些。", "an adult"),
+  v("teenager", "/青少年", "/ˈtiːneɪdʒər/", "n.", 2, 0.3, "Teenagers love music.", "青少年爱音乐。", "a teenager"),
+  v("kid", "/小孩（口语）", "/kɪd/", "n.", 1, 0.15, "The kids play outside.", "孩子们在外面玩。", "kids love it"),
+  v("twins", "/双胞胎", "/twɪnz/", "n.", 3, 0.35, "They are twins.", "他们是双胞胎。", "identical twins"),
+];

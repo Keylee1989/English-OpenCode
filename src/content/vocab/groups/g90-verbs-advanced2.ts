@@ -1,0 +1,36 @@
+import { v } from "@/content/vocab/builder";
+import type { VocabRow } from "@/content/vocab/types";
+
+/** Advanced verbs batch 2 - Day 91-120 support. */
+export const verbsAdvanced2Rows: VocabRow[] = [
+  v("facilitate", "/促进；使便利", "/fəˈsɪlɪteɪt/", "v.", 6, 0.6, "Good tools facilitate teamwork.", "好工具促进团队协作。", "facilitate open discussion"),
+  v("formulate-v", "/制定；系统地表达", "/ˈfɔːrmjuleɪt/", "v.", 6, 0.6, "Formulate your main point first.", "先组织好你的要点。", "formulate a clear question"),
+  v("foster-v", "/培养；促进", "/ˈfɔːstər/", "v.", 6, 0.55, "Managers should foster open dialogue.", "管理者应促进开放对话。", "foster a sense of belonging"),
+  v("generate-v", "/产生；引起", "/ˈdʒenəreɪt/", "v.", 3, 0.25, "Solar panels generate clean power.", "太阳能板产生清洁电力。", "generate interest online"),
+  v("guarantee-v", "/保证；担保", "/ˌɡærənˈtiː/", "v./n.", 4, 0.4, "We guarantee delivery within two days.", "我们保证两天内送达。", "under guarantee for two years"),
+  v("hinder-v", "/阻碍；妨碍", "/ˈhɪndər/", "v.", 6, 0.6, "Fear hinders good decisions.", "恐惧妨碍好的决策。", "hinder long-term growth"),
+  v("implement-v", "/实施；执行", "/ˈɪmplɪment/", "v.", 4, 0.4, "The city implemented the new schedule.", "城市实施了新时刻表。", "implement changes gradually"),
+  v("incorporate-v", "/纳入；合并", "/ɪnˈkɔːrpəreɪt/", "v.", 7, 0.65, "Incorporate feedback before finalizing.", "定稿前把反馈纳入进来。", "incorporate user feedback"),
+  v("indicate-v", "/表明；指示", "/ˈɪndɪkeɪt/", "v.", 4, 0.4, "Studies indicate steady improvement.", "研究表明稳步提升。", "indicate a clear trend"),
+  v("initiate-v", "/发起；开始实施", "/ɪˈnɪʃieɪt/", "v.", 6, 0.6, "She initiated the refund process.", "她发起了退款流程。", "initiate contact politely"),
+  v("innovate", "/创新；革新", "/ˈɪnəveɪt/", "v.", 5, 0.5, "Small teams often innovate faster.", "小团队往往创新更快。", "innovate under pressure"),
+  v("integrate-v", "/整合；融合", "/ˈɪntɪɡreɪt/", "v.", 5, 0.5, "Integrate practice into daily life.", "把练习融入日常生活。", "integrate new habits slowly"),
+  v("justify-v", "/证明…有理", "/ˈdʒʌstɪfaɪ/", "v.", 4, 0.4, "Can you justify this expense?", "你能说明这笔开销的理由吗？", "justify the extra cost"),
+  v("leverage-v", "/利用；发挥杠杆作用", "/ˈlevərɪdʒ/", "v./n.", 7, 0.65, "Leverage your strengths first.", "先发挥你的优势。", "leverage existing networks"),
+  v("maintain-v", "/维持；保养", "/meɪnˈteɪn/", "v.", 1, 0.15, "Maintain eye contact when speaking.", "说话时保持眼神交流。", "maintain a healthy routine"),
+  v("mitigate-v", "/减轻；缓解", "/ˈmɪtɪɡeɪt/", "v.", 7, 0.7, "Exercise mitigates everyday stress.", "锻炼能缓解日常压力。", "mitigate potential risks"),
+  v("modify-v", "/修改；调整", "/ˈmɑːdɪfaɪ/", "v.", 3, 0.3, "Modify the recipe to taste.", "按口味调整食谱。", "slightly modify the design"),
+  v("navigate-v", "/导航；应对", "/ˈnævɪɡeɪt/", "v.", 4, 0.35, "Navigate the menu with arrow keys.", "用方向键操作菜单。", "navigate office politics"),
+  v("negotiate-v", "/谈判；协商", "/nɪˈɡoʊʃieɪt/", "v.", 5, 0.45, "Negotiate terms before signing.", "签字前先谈条件。", "negotiate from strength"),
+  v("optimize-v", "/优化；使最优化", "/ˈɑːptɪmaɪz/", "v.", 7, 0.65, "Optimize your route to save gas.", "优化路线以省油。", "optimize for mobile users"),
+  v("orchestrate-v", "/精心策划；编排", "/ˈɔːrkɪstreɪt/", "v.", 7, 0.7, "She orchestrated the entire campaign.", "她策划了整场活动。", "orchestrate a smooth handoff"),
+  v("oversee-v", "/监督；监管", "/ˌoʊvərˈsiː/", "v.", 6, 0.6, "He oversees three project teams.", "他监督三个项目组。", "oversee daily operations"),
+  v("perceive-v", "/察觉；认为", "/pərˈsiːv/", "v.", 6, 0.6, "Customers perceive value differently.", "顾客对价值的感知不同。", "be perceived as reliable"),
+  v("postpone-v", "/推迟；延期", "/poʊstˈpoʊn/", "v.", 3, 0.3, "They postponed the meeting to Friday.", "他们把会议推迟到周五。", "postpone indefinitely"),
+  v("prioritize-v", "/优先处理", "/praɪˈɔːrətaɪz/", "v.", 4, 0.4, "Prioritize sleep during busy weeks.", "忙碌时期优先保证睡眠。", "prioritize ruthlessly"),
+  v("pursue-v", "/追求；从事", "/pərˈsuː/", "v.", 3, 0.3, "Pursue hobbies outside work hours.", "在工余时间发展爱好。", "pursue a long-term goal"),
+  v("rectify-v", "/纠正；改正", "/ˈrektɪfaɪ/", "v.", 7, 0.7, "Rectify the error before shipping.", "发布前改正这个错误。", "rectify the situation quickly"),
+  v("refine-v", "/提炼；改进", "/rɪˈfaɪn/", "v.", 4, 0.4, "Refine your pitch after each meeting.", "每次会后打磨你的陈述。", "refine the rough draft"),
+  v("reinforce-v", "/加强；强化", "/ˌriːɪnˈfɔːrs/", "v.", 5, 0.5, "Review reinforces memory.", "复习能强化记忆。", "reinforce positive behavior"),
+  v("render-v", "/使成为；提供(服务)", "/ˈrendər/", "v.", 7, 0.7, "The storm rendered the road useless.", "暴风雨使道路无法通行。", "render assistance promptly"),
+];

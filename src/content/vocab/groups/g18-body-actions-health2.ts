@@ -1,0 +1,31 @@
+import { v } from "@/content/vocab/builder";
+import type { VocabRow } from "@/content/vocab/types";
+
+export const bodyActionsHealth2Rows: VocabRow[] = [
+  v("breathe", "/呼吸", "/briːð/", "v.", 1, 0.25, "Breathe deeply.", "深呼吸。", "breathe in"),
+  v("nod", "/点头", "/nɑːd/", "v./n.", 2, 0.25, "Nod if you agreeHe nodded once.", "他点了下头。", "nod at"),
+  v("shake", "/摇；握手", "/ʃeɪk/", "v./n.", 1, 0.25, "Shake hands.", "握个手。", "shake hands"),
+  v("shrug", "/耸肩", "/ʃrʌɡ/", "v./n.", 3, 0.3, "He just shrugs.", "他只是耸耸肩。", "a shrug"),
+  v("stare", "/盯着看", "/ster/", "v.", 2, 0.25, "Stop staring!", "别盯着看！", "stare at"),
+  v("sneeze", "/打喷嚏", "/sniːz/", "v./n.", 2, 0.25, "Cover your sneezeShe sneezed twice.", "她打了两个喷嚏。", "a sneeze"),
+  v("cough", "/咳嗽", "/kɔːf/", "v./n.", 1, 0.2, "Cough into your armHe coughs a lot.", "他咳得厉害。", "a bad coughcough"),
+  v("yawn", "/打哈欠", "/jɔːn/", "v./n.", 3, 0.25, "The yawn spreadI yawned all morning.", "我一上午都在打哈欠。", "a yawn"),
+  v("bleed", "/流血", "/bliːd/", "v.", 3, 0.3, "Your finger bleedsIt bleeds a little.", "流了点血。", "bleedingbleed"),
+  v("bruise", "/淤青", "/bruːz/", "n./v.", 4, 0.4, "A bruise on his armA small bruise.", "一小块淤青。", "a bruise"),
+  v("wound", "/伤口", "/wuːnd/", "n.", 3, 0.35, "Clean the wound.", "清洗伤口。", "a wound"),
+  v("injury", "/受伤", "/ˈɪndʒəri/", "n.", 2, 0.3, "A minor injury.", "轻伤。", "serious injuriesan injury"),
+  v("fever", "/发烧", "/ˈfiːvər/", "n.", 1, 0.25, "A high fever.", "高烧。", "have a fever"),
+  v("headache", "/头痛", "/ˈhedeɪk/", "n.", 1, 0.2, "A bad headache.", "头痛欲裂。", "have a headache"),
+  v("allergy", "/过敏", "/ˈælərdʒi/", "n.", 3, 0.4, "An allergy to nuts.", "对坚果过敏。", "food allergiesan allergy"),
+  v("pill", "/药片", "/pɪl/", "n.", 1, 0.25, "Take two pills a day.", "一天吃两片。", "sleeping pillspills"),
+  v("vitamin", "/维生素", "/ˈvaɪtəmɪn/", "n.", 2, 0.3, "Vitamin C helps.", "维C有帮助。", "take vitaminsvitamins"),
+  v("diet", "/饮食；节食", "/ˈdaɪət/", "n.", 1, 0.3, "A healthy diet.", "健康饮食。", "go on a dieta healthy diet"),
+  v("exercise", "/锻炼；练习", "/ˈeksərsaɪz/", "v./n.", 1, 0.25, "Exercise three times a weekExercise daily.", "每天锻炼。", "get exerciseexercise more"),
+  v("muscle", "/肌肉", "/ˈmʌsl/", "n.", 2, 0.3, "Strong muscles.", "强壮的肌肉。", "muscle painmuscles"),
+  v("bone", "/骨头", "/boʊn/", "n.", 1, 0.2, "Bones are strong.", "骨骼强健。", "skin and bonesstrong bones"),
+  v("skin", "/皮肤", "/skɪn/", "n.", 1, 0.15, "Soft skin.", "柔嫩的皮肤。", "dry skin"),
+  v("blood", "/血", "/blʌd/", "n.", 1, 0.2, "Blood test today.", "今天验血。", "blood testblood"),
+  v("brain", "/大脑", "/breɪn/", "n.", 1, 0.2, "Use your brain!", "动动脑子！", "your brain"),
+  v("stomach", "/胃；肚子", "/ˈstʌmək/", "n.", 1, 0.2, "My stomach hurts.", "我胃疼。", "upset stomachstomach achemy stomach"),
+  v("shoulder", "/肩膀", "/ˈʃoʊldər/", "n.", 1, 0.15, "Tap his shoulder.", "拍他肩膀。", "shoulder to shouldermy shoulder"),
+];

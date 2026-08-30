@@ -1,0 +1,31 @@
+import { v } from "@/content/vocab/builder";
+import type { VocabRow } from "@/content/vocab/types";
+
+export const animals2Rows: VocabRow[] = [
+  v("horse", "/马", "/hɔːrs/", "n.", 1, 0.15, "Ride a horseHorses run fast.", "马跑得快。", "a horse"),
+  v("cow", "/奶牛", "/kaʊ/", "n.", 1, 0.15, "Cows eat grass.", "牛吃草。", "a cow"),
+  v("pig", "/猪", "/pɪɡ/", "n.", 1, 0.15, "Pigs are smart.", "猪很聪明。", "a pig"),
+  v("sheep", "/绵羊", "/ʃiːp/", "n.", 1, 0.15, "Sheep on the hill.", "山上的羊。", "a sheep"),
+  v("goat", "/山羊", "/ɡoʊt/", "n.", 2, 0.2, "Goats climb rocks.", "山羊会爬岩。", "a goat"),
+  v("duck", "/鸭子", "/dʌk/", "n.", 1, 0.15, "Ducks swim here.", "鸭子在这儿游。", "a duck"),
+  v("goose", "/鹅", "/ɡuːs/", "n.", 3, 0.25, "A white goose.", "白鹅。", "a goose"),
+  v("rabbit", "/兔子", "/ˈræbɪt/", "n.", 1, 0.15, "Rabbits love carrots.", "兔子爱吃胡萝卜。", "a rabbit"),
+  v("mouse", "/老鼠", "/maʊs/", "n.", 1, 0.15, "A mouse ran by.", "一只老鼠跑过。", "a mouse"),
+  v("rat", "/大鼠", "/ræt/", "n.", 2, 0.2, "Rats in cities.", "城市里有老鼠。", "a rat"),
+  v("snake", "/蛇", "/sneɪk/", "n.", 1, 0.15, "Snakes scare me.", "蛇吓到我。", "a snake"),
+  v("frog", "/青蛙", "/frɔːɡ/", "n.", 2, 0.15, "Frogs jump high.", "青蛙跳得高。", "a frog"),
+  v("wolf", "/狼", "/wʊlf/", "n.", 2, 0.2, "Wolves hunt at night.", "狼夜里捕猎。", "a wolf"),
+  v("fox", "/狐狸", "/fɑːks/", "n.", 2, 0.2, "A red fox!", "红狐狸！", "a fox"),
+  v("bear", "/熊；忍受", "/ber/", "n./v.", 1, 0.2, "Bears sleep in winter.", "熊冬眠。", "a bear"),
+  v("lion", "/狮子", "/ˈlaɪən/", "n.", 1, 0.15, "The lion roars.", "狮子吼。", "a lion"),
+  v("tiger", "/老虎", "/ˈtaɪɡər/", "n.", 1, 0.15, "Tigers have stripes.", "老虎有条纹。", "a tiger"),
+  v("elephant", "/大象", "/ˈelɪfənt/", "n.", 1, 0.2, "Elephants remember.", "大象记性好。", "an elephant"),
+  v("monkey", "/猴子", "/ˈmʌŋki/", "n.", 1, 0.15, "Monkeys climb trees.", "猴子爬树。", "a monkey"),
+  v("panda", "/熊猫", "/ˈpændə/", "n.", 1, 0.1, "Pandas eat bamboo.", "熊猫吃竹子。", "a panda"),
+  v("camel", "/骆驼", "/ˈkæml/", "n.", 3, 0.25, "Camels cross deserts.", "骆驼穿沙漠。", "a camel"),
+  v("deer", "/鹿", "/dɪr/", "n.", 2, 0.2, "Deer in the forest.", "林中有鹿。", "a deer"),
+  v("bee", "/蜜蜂", "/biː/", "n.", 2, 0.15, "Bees make honey.", "蜜蜂酿蜜。", "a bee"),
+  v("butterfly", "/蝴蝶", "/ˈbʌtərflaɪ/", "n.", 1, 0.2, "A blue butterfly.", "蓝蝴蝶。", "a butterfly"),
+  v("ant", "/蚂蚁", "/ænt/", "n.", 2, 0.2, "Ants work together.", "蚂蚁协作。", "an ant"),
+  v("spider", "/蜘蛛", "/ˈspaɪdər/", "n.", 2, 0.2, "Spiders build webs.", "蜘蛛结网。", "a spider"),
+];

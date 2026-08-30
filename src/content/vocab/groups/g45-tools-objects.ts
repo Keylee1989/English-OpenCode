@@ -1,0 +1,32 @@
+import { v } from "@/content/vocab/builder";
+import type { VocabRow } from "@/content/vocab/types";
+
+export const toolsObjectsRows: VocabRow[] = [
+  v("anchor", "/锚", "/ˈæŋkər/", "n./v.", 4, 0.4, "Drop anchor here.", "在此下锚。", "an anchor"),
+  v("arrow", "/箭头", "/ˈeroʊ/", "n.", 1, 0.2, "Follow the arrow.", "跟着箭头走。", "an arrow"),
+  v("axe", "/斧子", "/æks/", "n.", 3, 0.35, "A sharp axe.", "锋利的斧子。", "an axe"),
+  v("bell", "/铃铛", "/bel/", "n.", 1, 0.15, "Ring the bell.", "摇铃。", "ring bellsbells"),
+  v("blade", "/刀刃；叶片", "/bleɪd/", "n.", 3, 0.4, "A dull blade is dangerousCareful with that blade.", "小心那刀刃。", "blades"),
+  v("brick", "/砖", "/brɪk/", "n.", 1, 0.2, "Red bricks.", "红砖。", "lay bricksbricks"),
+  v("cart", "/推车", "/kɑːrt/", "n.", 1, 0.2, "A shopping cart.", "购物车。", "add to carta cart"),
+  v("compass", "/指南针", "/ˈkʌmpəs/", "n.", 3, 0.35, "A compass points north.", "指南针指北。", "a compass"),
+  v("crown", "/王冠", "/kraʊn/", "n.", 1, 0.2, "The king's crown.", "国王的王冠。", "a crown"),
+  v("cushion", "/靠垫", "/ˈkʊʃn/", "n.", 2, 0.25, "Soft cushions on chairsGrab a cushion.", "拿个靠垫。", "sofa cushionscushions"),
+  v("flag", "/旗", "/flæɡ/", "n.", 1, 0.15, "Raise the flag.", "升旗。", "flags"),
+  v("hammer", "/锤子", "/ˈhæmər/", "n./v.", 1, 0.2, "Hammer the nail in.", "把钉子敲进去。", "a hammer and nails"),
+  v("handle-n", "/把手；处理", "/ˈhændl/", "n./v.", 1, 0.2, "Turn the handle.", "转把手。", "handle ithandles"),
+  v("helmet", "/头盔", "/ˈhelmɪt/", "n.", 1, 0.2, "Wear your helmet.", "戴好头盔。", "bike helmethelmets"),
+  v("hook", "/钩子", "/hʊk/", "n./v.", 1, 0.2, "Hang it on the hook.", "挂在钩子上。", "a coat hookhooks"),
+  v("lantern", "/灯笼", "/ˈlæntərn/", "n.", 2, 0.25, "Red lanterns glow.", "红灯笼亮着。", "lanterns"),
+  v("net", "/网", "/net/", "n.", 1, 0.2, "A fishing net.", "渔网。", "a safety netnets"),
+  v("parachute", "/降落伞", "/ˈpærəʃuːt/", "n.", 3, 0.35, "Pack the parachute.", "整理降落伞。", "a parachute"),
+  v("rocket", "/火箭", "/ˈrɑːkɪt/", "n.", 1, 0.15, "Rockets reach space.", "火箭入太空。", "a rocket"),
+  v("sail", "/帆；航行", "/seɪl/", "n./v.", 1, 0.2, "Sail around the baySet sail at dawn.", "黎明启航。", "set sail"),
+  v("shield", "/盾；保护", "/ʃiːld/", "n./v.", 2, 0.3, "A shield protects youShields block arrows.", "盾挡箭。", "shields"),
+  v("tent", "/帐篷", "/tent/", "n.", 1, 0.2, "Sleep in a tent tonight.", "今晚睡帐篷。", "pitch a tenttents"),
+  v("torch", "/火把；手电(英)", "/tɔːrtʃ/", "n.", 3, 0.3, "Carry a torch at night.", "夜里带手电。", "a torch"),
+  v("umbrella", "/雨伞", "/ʌmˈbrelə/", "n.", 1, 0.15, "Take an umbrella today.", "今天带伞。", "an umbrella"),
+  v("wagon", "/四轮车", "/ˈwæɡən/", "n.", 3, 0.3, "An old wooden wagon.", "旧木推车。", "a wagon"),
+  v("wheel", "/轮子；方向盘", "/wiːl/", "n.", 1, 0.15, "Invent the wheel.", "发明车轮。", "front wheelwheels"),
+  v("yarn", "/毛线；故事", "/jɑːrn/", "n.", 4, 0.4, "Knit with soft yarn.", "用软毛线织。", "yarn"),
+];

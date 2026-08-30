@@ -1,0 +1,30 @@
+import { v } from "@/content/vocab/builder";
+import type { VocabRow } from "@/content/vocab/types";
+
+export const foodDrinkRows: VocabRow[] = [
+  v("food", "/食物", "/fuːd/", "n.", 1, 0.15, "Chinese food is tasty.", "中餐很好吃。", "fast food"),
+  v("rice", "/米饭；大米", "/raɪs/", "n.", 2, 0.25, "Rice for dinner.", "晚饭吃米饭。", "fried rice"),
+  v("bread", "/面包", "/bred/", "n.", 1, 0.25, "Fresh bread smells good.", "新鲜面包很香。", "a piece of bread"),
+  v("egg", "/鸡蛋", "/eɡ/", "n.", 1, 0.2, "Two eggs, please.", "请给两个鸡蛋。", "fried egg"),
+  v("juice", "/果汁", "/dʒuːs/", "n.", 2, 0.25, "Orange juice, please.", "请给橙汁。", "apple juice"),
+  v("soup", "/汤", "/suːp/", "n.", 2, 0.3, "Hot soup today.", "今天有热汤。", "a bowl of soup"),
+  v("meat", "/肉", "/miːt/", "n.", 2, 0.3, "I don't eat meat.", "我不吃肉。", "red meat"),
+  v("chicken", "/鸡肉；鸡", "/ˈtʃɪkɪn/", "n.", 1, 0.3, "Chicken and rice.", "鸡肉配米饭。", "fried chicken"),
+  v("fish", "/鱼", "/fɪʃ/", "n.", 1, 0.25, "Fish is healthy.", "鱼肉很健康。", "fresh fish"),
+  v("fruit", "/水果", "/fruːt/", "n.", 1, 0.25, "Eat fruit every day.", "每天吃水果。", "fresh fruit"),
+  v("apple", "/苹果", "/ˈæpl/", "n.", 1, 0.15, "An apple a day.", "一天一苹果。", "eat an apple"),
+  v("banana", "/香蕉", "/bəˈnænə/", "n.", 1, 0.2, "Bananas are cheap.", "香蕉很便宜。", "ripe banana"),
+  v("orange", "/橙子；橙色", "/ˈɔːrɪndʒ/", "n./adj.", 1, 0.2, "Two oranges, please.", "请给两个橙子。", "orange juice"),
+  v("vegetable", "/蔬菜", "/ˈvedʒtəbl/", "n.", 2, 0.35, "Eat more vegetables.", "多吃蔬菜。", "green vegetables"),
+  v("potato", "/土豆", "/pəˈteɪtoʊ/", "n.", 2, 0.3, "Baked potatoes.", "烤土豆。", "boiled potato"),
+  v("tomato", "/西红柿", "/təˈmeɪtoʊ/", "n.", 2, 0.3, "Tomato soup, please.", "请给番茄汤。", "tomato sauce"),
+  v("breakfast", "/早餐", "/ˈbrekfəst/", "n.", 1, 0.3, "Breakfast at seven.", "七点吃早餐。", "have breakfast"),
+  v("lunch", "/午餐", "/lʌntʃ/", "n.", 1, 0.25, "Lunch together?", "一起吃午饭？", "have lunch"),
+  v("dinner", "/晚餐", "/ˈdɪnər/", "n.", 1, 0.25, "Dinner is ready.", "晚饭好了。", "have dinner"),
+  v("sugar", "/糖", "/ˈʃʊɡər/", "n.", 3, 0.4, "No sugar, please.", "请不要加糖。", "sugar free"),
+  v("salt", "/盐", "/sɔːlt/", "n.", 3, 0.35, "Too much salt.", "盐放多了。", "sea salt"),
+  v("hungry", "/饿的", "/ˈhʌŋɡri/", "adj.", 1, 0.3, "I am hungry.", "我饿了。", "feel hungry"),
+  v("thirsty", "/渴的", "/ˈθɜːrsti/", "adj.", 2, 0.35, "Thirsty? Drink water.", "渴了吗？喝水吧。", "feel thirsty"),
+  v("delicious", "/美味的", "/dɪˈlɪʃəs/", "adj.", 2, 0.4, "This soup is delicious!", "这汤太好喝了！", "smell delicious"),
+  v("menu", "/菜单", "/ˈmenjuː/", "n.", 2, 0.35, "The menu, please.", "请给我菜单。", "read the menu"),
+];

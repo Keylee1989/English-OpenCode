@@ -1,0 +1,33 @@
+import { v } from "@/content/vocab/builder";
+import type { VocabRow } from "@/content/vocab/types";
+
+export const miscCommonRows: VocabRow[] = [
+  v("thing", "/东西；事情", "/θɪŋ/", "n.", 1, 0.1, "One thing at a time.", "一次一件事。", "all things"),
+  v("stuff", "/东西（口语）", "/stʌf/", "n.", 1, 0.2, "Pack your stuff.", "收拾你的东西。", "good stuffmy stuff"),
+  v("object", "/物体；对象", "/ˈɑːbdʒɪkt/", "n.", 1, 0.3, "A strange object.", "奇怪的物体。", "a sharp objectobjects"),
+  v("item", "/物品；条目", "/ˈaɪtəm/", "n.", 1, 0.2, "Check every item.", "逐项检查。", "items"),
+  v("detail", "/细节", "/ˈdiːteɪl/", "n.", 1, 0.25, "Details matter.", "细节很重要。", "in detail"),
+  v("part", "/部分；零件", "/pɑːrt/", "n.", 1, 0.1, "Part of the team.", "团队一员。", "take part"),
+  v("top", "/顶部", "/tɑːp/", "n./adj.", 1, 0.15, "On top of the hillThe top shelf.", "最上层。", "at the toptop"),
+  v("bottom", "/底部", "/ˈbɑːtəm/", "n.", 1, 0.2, "Bottom drawer sticks.", "最下层抽屉卡。", "at the bottom"),
+  v("front-n", "/前面", "/frʌnt/", "n./adj.", 1, 0.15, "Front door is open.", "前门开着。", "in front"),
+  v("back", "/后面；背", "/bæk/", "n./adv.", 1, 0.15, "Back of the busSit in the back.", "坐后排。", "come backthe back"),
+  v("left", "/左边", "/left/", "adj./adv.", 1, 0.15, "Turn left at the light.", "红绿灯左转。", "on your left"),
+  v("level", "/水平；级别", "/ˈlevl/", "n./adj.", 1, 0.2, "Your level grows.", "你的水平在提升。", "next level"),
+  v("base", "/基础；基地", "/beɪs/", "n./v.", 1, 0.25, "Home base.", "大本营。", "a home basebase"),
+  v("brand", "/品牌", "/brænd/", "n./v.", 1, 0.2, "My favorite brand.", "我最爱的品牌。", "a brand"),
+  v("mark", "/记号；分数", "/mɑːrk/", "n./v.", 1, 0.2, "Leave a mark.", "留下印记。", "full marksmarks"),
+  v("sign", "/标志；签名", "/saɪn/", "n./v.", 1, 0.15, "No parking sign.", "禁停标志。", "sign heresigns"),
+  v("symbol", "/符号；象征", "/ˈsɪmbl/", "n.", 2, 0.3, "A peace symbol.", "和平标志。", "a symbol of hopesymbols"),
+  v("pattern", "/图案；模式", "/ˈpætərn/", "n.", 1, 0.25, "Spots and stripes patternsThe same pattern repeats.", "同样的模式重复。", "patterns"),
+  v("model", "/模型；型号", "/ˈmɑːdl/", "n./v.", 1, 0.2, "A model car.", "汽车模型。", "role modelmodels"),
+  v("job", "/工作；任务", "/dʒɑːb/", "n.", 1, 0.15, "Find a job you love.", "找份热爱的工作。", "do a good jobjobs"),
+  v("life", "/生活；生命", "/laɪf/", "n.", 1, 0.15, "Life is learning.", "生活即学习。", "daily life"),
+  v("image", "/图像", "/ˈɪmɪdʒ/", "n.", 1, 0.25, "Save the image.", "保存图片。", "a clear imageimages"),
+  v("future", "/未来", "/ˈfjuːtʃər/", "n./adj.", 1, 0.2, "Build your future.", "建设未来。", "in the future"),
+  v("past", "/过去", "/pæst/", "n./adj.", 1, 0.2, "Learn from the past.", "以史为鉴。", "in the past"),
+  v("moment", "/时刻", "/ˈmoʊmənt/", "n.", 1, 0.15, "Enjoy the moment.", "享受此刻。", "at the moment"),
+  v("second", "/秒；第二", "/ˈsekənd/", "n./adj.", 1, 0.15, "Wait one second.", "等一秒。", "every second countsseconds"),
+  v("century", "/世纪", "/ˈsentʃəri/", "n.", 1, 0.25, "A new century.", "新的世纪。", "this centurycenturies"),
+  v("period", "/时期；周期", "/ˈpɪriəd/", "n.", 1, 0.25, "A busy period at work.", "工作忙季。", "a period of time"),
+];

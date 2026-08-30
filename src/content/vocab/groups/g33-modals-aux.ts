@@ -1,0 +1,30 @@
+import { v } from "@/content/vocab/builder";
+import type { VocabRow } from "@/content/vocab/types";
+
+export const modalsAuxRows: VocabRow[] = [
+  v("can", "/能；可以", "/kæn/", "v.", 1, 0.1, "I can swim.", "我会游泳。", "as fast as you can"),
+  v("cannot", "/不能", "/ˈkænɑːt/", "v.", 1, 0.15, "I cannot go today.", "我今天去不了。", "cannot helpcannot"),
+  v("must", "/必须", "/mʌst/", "v.", 1, 0.2, "You must rest.", "你必须休息。", "must be"),
+  v("should", "/应该", "/ʃʊd/", "v.", 1, 0.15, "You should sleep early.", "你应该早点睡。", "should have"),
+  v("may", "/可以；可能", "/meɪ/", "v.", 1, 0.2, "May I help?", "需要帮忙吗？", "as far as I knowmay"),
+  v("might", "/可能", "/maɪt/", "v.", 1, 0.2, "It might rain.", "可能会下雨。", "might as well"),
+  v("could", "/能够（过去/委婉）", "/kʊd/", "v.", 1, 0.2, "Could you help?", "能帮个忙吗？", "could be"),
+  v("would", "/会；愿意", "/wʊd/", "v.", 1, 0.2, "I would love that.", "我很愿意。", "would like"),
+  v("will", "/将要；意志", "/wɪl/", "v./n.", 1, 0.1, "Will it work?", "会有用吗？", "free willwill"),
+  v("let", "/让", "/let/", "v.", 1, 0.15, "Let me try.", "让我试试。", "let golet me"),
+  v("seem", "/似乎", "/siːm/", "v.", 1, 0.25, "You seem tired.", "你好像累了。", "seem like"),
+  v("become", "/变成", "/bɪˈkʌm/", "v.", 1, 0.25, "Dreams become real with workIt became clear.", "事情清楚了。", "become a doctorbecome"),
+  v("grow", "/生长；增长", "/ɡroʊ/", "v.", 1, 0.2, "Plants grow toward lightKids grow fast.", "孩子长得快。", "grow up"),
+  v("remain", "/保持；剩余", "/rɪˈmeɪn/", "v.", 3, 0.35, "Remain calm.", "保持冷静。", "remain silentremain"),
+  v("appear", "/出现；显得", "/əˈpɪr/", "v.", 1, 0.3, "Stars appear at night.", "星星夜里出现。", "appear on TVappear"),
+  v("disappear", "/消失", "/ˌdɪsəˈpɪr/", "v.", 1, 0.3, "Keys disappear easily.", "钥匙总爱失踪。", "disappear into"),
+  v("happen", "/发生", "/ˈhæpən/", "v.", 1, 0.2, "What happened?", "怎么了？", "happen to"),
+  v("exist", "/存在", "/ɪɡˈzɪst/", "v.", 2, 0.3, "Real heroes existProblems still exist.", "问题依然存在。", "there existexist"),
+  v("matter", "/要紧；物质", "/ˈmætər/", "v./n.", 1, 0.25, "Every word mattersSize doesn't matter.", "大小不重要。", "what mattersmatter"),
+  v("depend", "/取决于", "/dɪˈpend/", "v.", 1, 0.3, "It depends on you.", "这取决于你。", "depend on"),
+  v("belong", "/属于", "/bɪˈlɔːŋ/", "v.", 1, 0.3, "I belong here.", "我属于这里。", "belong to"),
+  v("deserve", "/应得", "/dɪˈzɜːrv/", "v.", 2, 0.3, "You deserve rest.", "你该休息了。", "deserve betterdeserve"),
+  v("promise", "/承诺", "/ˈprɑːmɪs/", "v./n.", 1, 0.25, "Promise me.", "答应我。", "keep a promise"),
+  v("prefer", "/更喜欢", "/prɪˈfɜːr/", "v.", 1, 0.25, "I prefer tea.", "我更爱茶。", "prefer A to B"),
+  v("avoid", "/避免", "/əˈvɔɪd/", "v.", 1, 0.25, "Avoid the crowd.", "避开人群。", "avoid doingavoid"),
+];

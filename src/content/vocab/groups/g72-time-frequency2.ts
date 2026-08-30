@@ -1,0 +1,35 @@
+import { v } from "@/content/vocab/builder";
+import type { VocabRow } from "@/content/vocab/types";
+
+/** Time & frequency - supports scheduling and storytelling topics. */
+export const timeFrequency2Rows: VocabRow[] = [
+  v("decade", "/十年", "/ˈdekeɪd/", "n.", 3, 0.3, "The cafe has been open for a decade.", "这家咖啡馆开了十年了。", "over the past decade"),
+  v("midnight", "/午夜", "/ˈmɪdnaɪt/", "n.", 1, 0.1, "The train leaves at midnight.", "火车午夜发车。", "stay up till midnight"),
+  v("noon", "/正午", "/nuːn/", "n.", 1, 0.05, "Lunch service starts at noon.", "午餐供应从正午开始。", "around noon"),
+  v("dawn", "/黎明；破晓", "/dɔːn/", "n.", 4, 0.3, "We left the campsite at dawn.", "我们黎明时离开了营地。", "from dawn to dusk"),
+  v("dusk", "/黄昏", "/dʌsk/", "n.", 5, 0.35, "Fireflies come out at dusk.", "萤火虫在黄昏出现。", "at dusk"),
+  v("daytime", "/白天", "/ˈdeɪtaɪm/", "n.", 2, 0.2, "Stay indoors during the daytime heat.", "白天炎热时待在室内。", "during the daytime"),
+  v("nighttime", "/夜间", "/ˈnaɪttaɪm/", "n./adj.", 2, 0.2, "Nighttime temps drop fast here.", "这里夜间降温快。", "a nighttime routine"),
+  v("weekday", "/工作日", "/ˈwiːkdeɪ/", "n.", 1, 0.1, "Museums are quieter on weekdays.", "博物馆工作日人少。", "on weekdays only"),
+  v("era", "/时代；年代", "/ˈerə/", "n.", 5, 0.45, "We live in the streaming era.", "我们生活在流媒体时代。", "a new era begins"),
+  v("instant", "/瞬间；立即", "/ˈɪnstənt/", "n./adj.", 2, 0.25, "The reply came in an instant.", "回复立刻就来了。", "an instant success"),
+  v("meanwhile", "/与此同时", "/ˈmiːnwaɪl/", "adv.", 3, 0.25, "Meanwhile, back at the office...", "与此同时，办公室那边……", "meanwhile, back home"),
+  v("afterwards", "/之后；然后", "/ˈæftərwərdz/", "adv.", 2, 0.2, "Let's get ice cream afterwards.", "之后我们去吃冰淇淋吧。", "shortly afterwards"),
+  v("beforehand", "/事先；提前", "/bɪˈfɔːrhænd/", "adv.", 3, 0.3, "Charge your phone beforehand.", "提前给手机充好电。", "plan everything beforehand"),
+  v("currently", "/目前", "/ˈkɜːrəntli/", "adv.", 2, 0.25, "She's currently working remotely.", "她目前在远程办公。", "currently unavailable"),
+  v("nowadays", "/如今", "/ˈnaʊədeɪz/", "adv.", 2, 0.2, "Nowadays everyone orders online.", "如今大家都在网上下单。", "kids nowadays"),
+  v("instantly", "/立即地", "/ˈɪnstəntli/", "adv.", 2, 0.2, "The door unlocked instantly.", "门立刻就开了。", "recognize instantly"),
+  v("eventually", "/最终", "/ɪˈventʃuəli/", "adv.", 1, 0.15, "Eventually, the bus arrived.", "公交车终于来了。", "eventually it worked out"),
+  v("frequently", "/频繁地", "/ˈfriːkwəntli/", "adv.", 2, 0.2, "He frequently visits his grandparents.", "他经常看望祖父母。", "travel frequently"),
+  v("constantly", "/不断地", "/ˈkɑːnstəntli/", "adv.", 2, 0.2, "My phone buzzes constantly.", "我手机响个不停。", "change jobs constantly"),
+  v("occasionally", "/偶尔", "/əˈkeɪʒnəli/", "adv.", 2, 0.2, "Occasionally we eat dessert first.", "偶尔我们先吃甜点。", "only occasionally"),
+  v("permanently", "/永久地", "/ˈpɜːrmənəntli/", "adv.", 4, 0.4, "The store closed permanently in March.", "那家店三月永久停业了。", "move abroad permanently"),
+  v("lifetime", "/一生；终身", "/ˈlaɪftaɪm/", "n.", 2, 0.25, "A lifetime of habits is hard to change.", "一辈子的习惯很难改。", "a once-in-a-lifetime trip"),
+  v("bedtime", "/就寝时间", "/ˈbedtaɪm/", "n.", 1, 0.1, "Story time comes before bedtime.", "睡前讲故事。", "a regular bedtime"),
+  v("lunchtime", "/午餐时间", "/ˈlʌntʃtaɪm/", "n.", 1, 0.1, "The park fills at lunchtime.", "公园午餐时间人满。", "meet at lunchtime"),
+  v("punctual", "/准时的", "/ˈpʌŋktʃuəl/", "adj.", 6, 0.5, "Be punctual for interviews.", "面试要准时。", "always punctual"),
+  v("on-time", "/准时地", "/ɑːn taɪm/", "phr.", 1, 0.1, "The flight arrived on-time.", "航班准点到达。", "always on time"),
+  v("in-advance", "/提前；预先", "/ɪn ədˈvæns/", "phr.", 1, 0.15, "Book tickets two weeks in-advance.", "提前两周订票。", "pay in advance"),
+  v("right-away", "/立刻", "/raɪt əˈweɪ/", "phr.", 1, 0.1, "Call me right-away if anything changes.", "有变化马上打给我。", "start right away"),
+  v("sooner-or-later", "/迟早", "/ˈsuːnər ər ˈleɪtər/", "phr.", 2, 0.2, "Sooner-or-later you'll need a visa.", "你迟早需要签证。", "sooner or later it happens"),
+];

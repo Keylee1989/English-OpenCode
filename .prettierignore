@@ -1,0 +1,7 @@
+dist
+dev-dist
+coverage
+node_modules
+package-lock.json
+public/icons/*.png
+public/apple-touch-icon.png

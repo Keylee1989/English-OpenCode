@@ -1,0 +1,33 @@
+import { v } from "@/content/vocab/builder";
+import type { VocabRow } from "@/content/vocab/types";
+
+export const verbsMindComm2Rows: VocabRow[] = [
+  v("decide", "/决定", "/dɪˈsaɪd/", "v.", 1, 0.35, "Decide today.", "今天做决定。", "decide on"),
+  v("choose", "/选择", "/tʃuːz/", "v.", 1, 0.3, "Choose one.", "选一个。", "choose from"),
+  v("plan", "/计划", "/plæn/", "v./n.", 1, 0.3, "Plan your week.", "规划你的一周。", "make a plan"),
+  v("hope", "/希望", "/hoʊp/", "v./n.", 1, 0.3, "I hope so.", "希望如此。", "hope for"),
+  v("wish", "/但愿；祝愿", "/wɪʃ/", "v./n.", 2, 0.35, "Wish me luck!", "祝我好运！", "best wishes"),
+  v("believe", "/相信", "/bɪˈliːv/", "v.", 1, 0.35, "Believe me.", "相信我。", "believe in"),
+  v("trust", "/信任", "/trʌst/", "v./n.", 2, 0.35, "Trust yourself.", "相信自己。", "build trust"),
+  v("agree", "/同意", "/əˈɡriː/", "v.", 1, 0.3, "I agree with you.", "我同意你的看法。", "agree with"),
+  v("argue", "/争论", "/ˈɑːrɡjuː/", "v.", 2, 0.35, "Don't argue here.", "别在这儿争。", "argue about"),
+  v("discuss", "/讨论", "/dɪˈskʌs/", "v.", 2, 0.35, "Discuss it later.", "稍后讨论。", "discuss the plan"),
+  v("explain", "/解释", "/ɪkˈspleɪn/", "v.", 1, 0.3, "Explain it again.", "再解释一遍。", "explain why"),
+  v("describe", "/描述", "/dɪˈskraɪb/", "v.", 2, 0.35, "Describe the man.", "描述一下那个人。", "describe how"),
+  v("imagine", "/想象", "/ɪˈmædʒɪn/", "v.", 2, 0.4, "Imagine that!", "想想看！", "just imagine"),
+  v("compare", "/比较", "/kəmˈper/", "v.", 3, 0.45, "Compare the two.", "对比这两个。", "compare with"),
+  v("copy", "/复制；抄", "/ˈkɑːpi/", "v./n.", 1, 0.3, "Copy this link.", "复制这个链接。", "make a copy"),
+  v("repeat", "/重复", "/rɪˈpiːt/", "v.", 1, 0.3, "Repeat after me.", "跟我读。", "repeat after"),
+  v("correct", "/改正；正确的", "/kəˈrekt/", "v./adj.", 1, 0.3, "Correct my Correct the errors.", "改正错误。", "correct answers"),
+  v("translate", "/翻译", "/trænzˈleɪt/", "v.", 2, 0.4, "Translate this word.", "翻译这个词。", "translate into"),
+  v("organize", "/组织；整理", "/ˈɔːrɡənaɪz/", "v.", 2, 0.4, "Organize your desk.", "整理书桌。", "get organized"),
+  v("prepare", "/准备", "/prɪˈper/", "v.", 1, 0.3, "Prepare dinner Prepare for class.", "为上课做准备。", "prepare for"),
+  v("save", "/节省；储存", "/seɪv/", "v.", 1, 0.3, "Save your money.", "存钱。", "save up"),
+  v("spend", "/花费；度过", "/spend/", "v.", 1, 0.3, "Spend less.", "少花点。", "spend time"),
+  v("waste", "/浪费", "/weɪst/", "v./n.", 2, 0.35, "Waste no time.", "别浪费时间。", "a waste of"),
+  v("manage", "/管理；设法做到", "/ˈmænɪdʒ/", "v.", 2, 0.4, "Manage your time.", "管理好时间。", "manage to"),
+  v("afford", "/买得起", "/əˈfɔːrd/", "v.", 2, 0.4, "I can't afford it.", "我买不起。", "can't afford"),
+  v("offer", "/提供", "/ˈɔːfər/", "v./n.", 1, 0.3, "They offer help.", "他们提供帮助。", "special offer"),
+  v("accept", "/接受", "/əkˈsept/", "v.", 1, 0.3, "Accept the offer.", "接受这个提议。", "accept an invitation"),
+  v("refuse", "/拒绝", "/rɪˈfjuːz/", "v.", 2, 0.35, "He refused politely.", "他礼貌地拒绝了。", "refuse to"),
+];
