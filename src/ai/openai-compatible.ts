@@ -36,6 +36,8 @@ export interface OpenAiCompatibleConfig {
   baseUrl: string;
   /** Runtime-supplied key. Held in memory only; never persisted by this module. */
   apiKey: string;
+  /** Optional extra headers for the provider/custom gateway (never the key here). */
+  customHeaders?: Record<string, string>;
   /** Injectable for tests. */
   fetchImpl?: FetchLike;
 }
@@ -78,6 +80,16 @@ export class OpenAiCompatibleProvider implements IAiProvider {
       ((url, init) => fetch(url, init));
   }
 
+  /** Merge default auth/content headers with any user-supplied custom headers. */
+  private headers(extra: Record<string, string> = {}): Record<string, string> {
+    return {
+      "content-type": "application/json",
+      authorization: `Bearer ${this.config.apiKey}`,
+      ...this.config.customHeaders,
+      ...extra,
+    };
+  }
+
   async complete(request: AiCompletionRequest): Promise<AiCompletionResponse> {
     const { baseUrl, apiKey } = this.config;
     if (!apiKey) {
@@ -96,10 +108,7 @@ export class OpenAiCompatibleProvider implements IAiProvider {
     try {
       response = await this.fetchImpl(url, {
         method: "POST",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${apiKey}`,
-        },
+        headers: this.headers(),
         body: JSON.stringify(body),
         signal: request.signal,
       });
@@ -161,11 +170,7 @@ export class OpenAiCompatibleProvider implements IAiProvider {
     try {
       response = await this.fetchImpl(url, {
         method: "POST",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${apiKey}`,
-          accept: "text/event-stream",
-        },
+        headers: this.headers({ accept: "text/event-stream" }),
         body: JSON.stringify(body),
         signal: request.signal,
       });

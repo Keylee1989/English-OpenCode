@@ -1,17 +1,21 @@
 /**
- * AI runtime session holder (Phase 4-B).
+ * AI runtime session holder (Phase 4-B, extended for multi-provider/custom).
  *
- * SECURITY CONTRACT (docs/architecture.md, Phase 4-B):
- * - The API key lives in this module's in-memory variable ONLY.
- *   It is never written to IndexedDB (Dexie), never to localStorage,
- *   and never logged or serialized.
- * - A page refresh clears it by design ("session memory").
- * - Only NON-SECRET preferences (providerId / modelId) are persisted to
- *   localStorage so the user does not re-select their vendor every visit.
+ * SECURITY CONTRACT (docs/architecture.md, Phase 4-B) — preserved:
+ * - By default the API key lives in this module's in-memory variable ONLY.
+ *   It is never written to IndexedDB (Dexie), never logged, never serialized.
+ * - The user may OPT IN to remembering the key in browser localStorage
+ *   (runtime-only storage, never in git/build). This is the user's explicit
+ *   choice; the safe default is session-only.
+ * - Only NON-SECRET preferences (providerId / modelId / baseUrl / protocol /
+ *   custom headers) are persisted so the user does not reconfigure every visit.
+ * - Keys NEVER enter the bundle, logs, usage tracker, or error messages.
  */
 import type { IAiProvider } from "@/ai/provider";
-import { createProvider } from "@/ai/providers";
+import { createProvider, findProviderDefinition } from "@/ai/providers";
 import { recordAiUsage } from "@/ai/usage-tracker";
+import type { Capability, ProviderProtocol } from "@/ai/registry/provider-registry";
+import { hasCapability, capabilityUnavailableZh } from "@/ai/registry/provider-registry";
 
 export interface AiSessionStatus {
   state: "unconfigured" | "ready" | "error";
@@ -23,21 +27,47 @@ export interface AiSessionStatus {
 interface AiRuntimeState {
   provider: IAiProvider | null;
   status: AiSessionStatus;
+  protocol: ProviderProtocol;
+  capabilities: readonly Capability[];
 }
 
-const state: AiRuntimeState = { provider: null, status: { state: "unconfigured" } };
+const state: AiRuntimeState = {
+  provider: null,
+  status: { state: "unconfigured" },
+  protocol: "chat-completions",
+  capabilities: [],
+};
 
 const PREF_KEY = "english360.ai.pref";
+const KEY_PERSIST_KEY = "english360.ai.key"; // opt-in key store (localStorage only)
+
+export interface AiConfigPersist {
+  providerId: string;
+  modelId?: string;
+  baseUrl?: string;
+  protocol?: string;
+  headers?: Record<string, string>;
+}
 
 /** Non-secret preference persisted across visits (never contains the key). */
 export interface AiPreference {
   providerId: string;
   modelId?: string;
+  baseUrl?: string;
+  protocol?: string;
+  headers?: Record<string, string>;
 }
 
 export function saveAiPreference(pref: AiPreference): void {
   try {
-    window.localStorage.setItem(PREF_KEY, JSON.stringify({ providerId: pref.providerId, modelId: pref.modelId }));
+    const cfg: AiConfigPersist = {
+      providerId: pref.providerId,
+      ...(pref.modelId ? { modelId: pref.modelId } : {}),
+      ...(pref.baseUrl ? { baseUrl: pref.baseUrl } : {}),
+      ...(pref.protocol ? { protocol: pref.protocol } : {}),
+      ...(pref.headers ? { headers: pref.headers } : {}),
+    };
+    window.localStorage.setItem(PREF_KEY, JSON.stringify(cfg));
   } catch {
     // Storage may be unavailable (private mode); session-only then.
   }
@@ -47,9 +77,15 @@ export function loadAiPreference(): AiPreference | null {
   try {
     const raw = window.localStorage.getItem(PREF_KEY);
     if (!raw) return null;
-    const parsed = JSON.parse(raw) as Partial<AiPreference>;
-    if (typeof parsed.providerId !== "string") return null;
-    return { providerId: parsed.providerId, modelId: parsed.modelId };
+    const cfg = JSON.parse(raw) as Partial<AiConfigPersist>;
+    if (typeof cfg.providerId !== "string") return null;
+    return {
+      providerId: cfg.providerId,
+      modelId: cfg.modelId,
+      baseUrl: cfg.baseUrl,
+      protocol: cfg.protocol,
+      headers: cfg.headers,
+    };
   } catch {
     return null;
   }
@@ -63,15 +99,59 @@ export function clearAiPreference(): void {
   }
 }
 
+// ---------------------------------------------------------------------------
+// Optional key persistence (user-authorized; OPPOSITE of the safe default).
+// Stored in localStorage only (runtime), never in git/build/source.
+// ---------------------------------------------------------------------------
+
+/** Read the persisted key, if the user opted in. Returns "" when absent. */
+export function loadPersistedKey(): string {
+  try {
+    const raw = window.localStorage.getItem(KEY_PERSIST_KEY);
+    if (!raw) return "";
+    const parsed = JSON.parse(raw) as { key?: string } | string;
+    return typeof parsed === "string" ? parsed : (parsed.key ?? "");
+  } catch {
+    return "";
+  }
+}
+
+export function persistKey(key: string): void {
+  try {
+    window.localStorage.setItem(KEY_PERSIST_KEY, JSON.stringify({ key }));
+  } catch {
+    // ignore
+  }
+}
+
+export function clearPersistedKey(): void {
+  try {
+    window.localStorage.removeItem(KEY_PERSIST_KEY);
+  } catch {
+    // ignore
+  }
+}
+
+// ---------------------------------------------------------------------------
+
 export interface ActivateAiInput {
   providerId: string;
   apiKey: string;
   modelId?: string;
+  /** Optional custom/override base URL (API root). */
+  baseUrl?: string;
+  /** Protocol override when the provider allows it. */
+  protocol?: string;
+  /** Custom headers (never the key). */
+  headers?: Record<string, string>;
+  /** Opt-in: remember the key in browser localStorage. Default off. */
+  persistKey?: boolean;
 }
 
 /**
- * Build a provider from a runtime key and hold it for this session only.
- * Returns the resulting status; on failure nothing is retained.
+ * Build a provider from runtime config and hold it for this session only.
+ * Returns the resulting status; on failure nothing is retained. Only the
+ * non-secret config is persisted; the key is retained only on explicit opt-in.
  */
 export function activateAi(input: ActivateAiInput): AiSessionStatus {
   if (!input.apiKey.trim()) {
@@ -79,20 +159,40 @@ export function activateAi(input: ActivateAiInput): AiSessionStatus {
     state.status = { state: "error", messageZh: "API Key 为空，未启用 AI。" };
     return state.status;
   }
+  const definition = findProviderDefinition(input.providerId);
+  if (!definition) {
+    state.provider = null;
+    state.status = { state: "error", messageZh: `未知的 AI Provider：${input.providerId}` };
+    return state.status;
+  }
   try {
     const provider = createProvider({
       providerId: input.providerId,
       modelId: input.modelId,
       apiKey: input.apiKey.trim(),
+      baseUrl: input.baseUrl,
+      protocol: input.protocol as ProviderProtocol | undefined,
+      headers: input.headers,
     });
+    const protocol = (input.protocol ?? definition.protocol) as ProviderProtocol;
     state.provider = wrapWithUsageTracking(provider);
+    state.protocol = protocol;
+    state.capabilities = definition.capabilities;
     state.status = {
       state: "ready",
       providerId: provider.providerId,
       modelId: provider.modelId,
-      messageZh: `已连接 ${provider.providerId}（本会话有效，刷新后需重新输入 Key）。`,
+      messageZh: `已连接 ${definition.nameZh} / ${provider.modelId}（本会话有效）。`,
     };
-    saveAiPreference({ providerId: input.providerId, modelId: input.modelId });
+    saveAiPreference({
+      providerId: input.providerId,
+      modelId: input.modelId,
+      baseUrl: input.baseUrl,
+      protocol: input.protocol,
+      headers: input.headers,
+    });
+    if (input.persistKey) persistKey(input.apiKey.trim());
+    else clearPersistedKey();
     return state.status;
   } catch (err) {
     state.provider = null;
@@ -109,15 +209,13 @@ export function deactivateAi(): void {
   state.provider = null;
   state.status = { state: "unconfigured", messageZh: "已清除本会话的 AI 配置。" };
   clearAiPreference();
+  clearPersistedKey();
 }
 
-/**
- * Phase 11-B Task 5: transparent usage-tracking wrapper.
- * Records provider/model/timestamp/feature/ok (+ rough token estimate) for
- * every completion - streaming or not. Metadata only; message content and
- * the API key never reach the log. Failures are recorded, then re-thrown so
- * callers see the real error unchanged.
- */
+// ---------------------------------------------------------------------------
+// usage-tracking wrapper (preserved unchanged)
+// ---------------------------------------------------------------------------
+
 function wrapWithUsageTracking(provider: IAiProvider): IAiProvider {
   const roughTokens = (request: { messages?: Array<{ content?: string }> }): number =>
     Math.ceil(
@@ -168,7 +266,6 @@ function wrapWithUsageTracking(provider: IAiProvider): IAiProvider {
     },
   };
 
-  // Preserve optional streaming capability with the same telemetry.
   const streamCapable = provider as IAiProvider & {
     completeStream?: (
       request: Parameters<IAiProvider["complete"]>[0],
@@ -215,6 +312,8 @@ function wrapWithUsageTracking(provider: IAiProvider): IAiProvider {
   return wrapped;
 }
 
+// ---------------------------------------------------------------------------
+
 /** Current status snapshot (safe to render; never contains the key). */
 export function getAiStatus(): AiSessionStatus {
   return state.status;
@@ -223,6 +322,29 @@ export function getAiStatus(): AiSessionStatus {
 /** The active provider, or null when unconfigured/failed. */
 export function getActiveAiProvider(): IAiProvider | null {
   return state.provider;
+}
+
+/** The active protocol. */
+export function getActiveProtocol(): ProviderProtocol {
+  return state.protocol;
+}
+
+/** The active definition's capabilities (empty when unconfigured). */
+export function getActiveCapabilities(): readonly Capability[] {
+  return state.capabilities;
+}
+
+/** Honest capability check against the active provider. */
+export function canSupport(cap: Capability): boolean {
+  if (!state.provider) return false;
+  const def = findProviderDefinition(state.status.providerId ?? "");
+  return def ? hasCapability(def, cap) : false;
+}
+
+/** Message describing why a capability is unavailable (for UI fallback). */
+export function capabilityUnavailableMessage(cap: Capability): string {
+  const def = findProviderDefinition(state.status.providerId ?? "");
+  return capabilityUnavailableZh(def, cap);
 }
 
 /** True when AI features may attempt calls right now. */
@@ -236,26 +358,63 @@ export interface ConnectionTestResult {
 }
 
 /**
- * Minimal real round-trip to verify connectivity + key acceptance.
- * Uses a tiny max-token request; result is reported honestly.
+ * Real round-trip to verify connectivity + key acceptance + model.
+ * Reports status-based detail (auth / model / timeout / CORS) but NEVER the
+ * API key.
  */
 export async function testAiConnection(): Promise<ConnectionTestResult> {
   const provider = state.provider;
   if (!provider) {
     return { ok: false, messageZh: "尚未配置可用的 AI Provider。" };
   }
+  const name = state.status.providerId ?? provider.providerId;
   try {
-    const response = await provider.complete({
-      messages: [{ role: "user", content: "Reply with the single word: OK" }],
-      temperature: 0,
-      maxTokens: 8,
-    });
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 30_000);
+    let response;
+    try {
+      response = await provider.complete({
+        messages: [{ role: "user", content: "Reply with the single word: OK" }],
+        temperature: 0,
+        maxTokens: 8,
+        signal: controller.signal,
+      });
+    } finally {
+      clearTimeout(timer);
+    }
     const ok = response.text.trim().length > 0;
     return ok
-      ? { ok: true, messageZh: `连接成功：${provider.providerId} / ${provider.modelId} 已响应。` }
-      : { ok: false, messageZh: `${provider.providerId} 返回了空响应。` };
+      ? { ok: true, messageZh: `连接成功：${name} / ${provider.modelId} 已响应。` }
+      : { ok: false, messageZh: `${name} 返回了空响应。` };
   } catch (err) {
-    const detail = err instanceof Error ? err.message.slice(0, 200) : String(err);
-    return { ok: false, messageZh: `连接失败：${detail}` };
+    return { ok: false, messageZh: describeAiError(err, name) };
   }
+}
+
+/** Non-sensitive, key-free description of a connection failure. */
+export function describeAiError(err: unknown, name: string): string {
+  if (err instanceof Error && err.name === "AbortError") {
+    return `${name} 连接失败：请求超时（30 秒）。请检查 Base URL / 网络。`;
+  }
+  const status = (err as { status?: number })?.status;
+  if (typeof status === "number") {
+    if (status === 401 || status === 403) {
+      return `${name} 连接失败：认证错误（HTTP ${status}），API Key 无效或没有权限。`;
+    }
+    if (status === 404) {
+      return `${name} 连接失败：未找到（HTTP 404），Base URL 或模型名无效，或不支持该端点。`;
+    }
+    if (status >= 400 && status < 500) {
+      return `${name} 连接失败：请求被拒绝（HTTP ${status}），请检查模型名 / 参数配置。`;
+    }
+    return `${name} 连接失败：服务端错误（HTTP ${status}）。`;
+  }
+  const message = err instanceof Error ? err.message : String(err);
+  if (
+    err instanceof TypeError ||
+    /CORS|Network error contacting|无法连接/i.test(message)
+  ) {
+    return `${name} 连接失败：${message}（若该 API 不允许浏览器直接跨域访问，则需要支持 CORS 的端点或服务器代理）。`;
+  }
+  return `${name} 连接失败：${message.slice(0, 200)}`;
 }
