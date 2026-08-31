@@ -10,6 +10,7 @@ import {
 import {
   activateAi,
   deactivateAi,
+  fetchModels,
   getAiStatus,
   getActiveCapabilities,
   loadAiPreference,
@@ -56,6 +57,9 @@ export default function AiSettingsPage() {
   const [status, setStatus] = useState<AiSessionStatus>(getAiStatus());
   const [testing, setTesting] = useState(false);
   const [testResultZh, setTestResultZh] = useState<string | null>(null);
+  const [models, setModels] = useState<string[]>([]);
+  const [modelFetching, setModelFetching] = useState(false);
+  const [modelFetchZh, setModelFetchZh] = useState<string | null>(null);
   const [savedConfigs, setSavedConfigs] = useState<SavedAiConfig[]>([]);
   const [activeConfigId, setActiveConfigId] = useState<string | null>(null);
 
@@ -179,6 +183,23 @@ export default function AiSettingsPage() {
 
   const save = (): void => {
     connect(false);
+  };
+
+  const loadModels = async (): Promise<void> => {
+    setModelFetching(true);
+    setModelFetchZh(null);
+    try {
+      const outcome = await fetchModels({ baseUrl, apiKey });
+      if (outcome.ok) {
+        setModels(outcome.models);
+        setModelFetchZh(`找到 ${outcome.models.length} 个模型：${outcome.models.join("、")}`);
+      } else {
+        setModels([]);
+        setModelFetchZh(outcome.messageZh);
+      }
+    } finally {
+      setModelFetching(false);
+    }
   };
 
   const remove = (id: string): void => {
@@ -367,6 +388,12 @@ export default function AiSettingsPage() {
         <p className="fineprint">
           安全说明：默认 Key 只保存在本页面会话内存中，刷新即清空；绝不写入 IndexedDB，绝不随网络请求外的任何路径上传。
         </p>
+        <p className="fineprint dim" style={{ marginTop: 6 }}>
+          请注意：本应用是纯前端静态部署（GitHub Pages），没有服务器。
+          「Key 仅保存在本机」（localStorage）只表示它不进入源码/构建产物，<strong>并不等于它在网络上不可被读取</strong>——
+          它仍会随每次 AI 请求通过 HTTPS 发送给该 Provider；拥有你本机浏览器访问权限的脚本/站点也可能读到它。
+          这不属于服务器端机密存储，请勿在共用或不信任的设备上保存 Key。
+        </p>
 
         {definition.type === "custom" && (
           <>
@@ -381,6 +408,45 @@ export default function AiSettingsPage() {
               onChange={(event) => setCustomHeaders(event.target.value)}
             />
           </>
+        )}
+
+        <label className="fineprint" htmlFor="ai-model-fetch">
+          模型列表（可选，自动获取）：
+        </label>
+        <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+          <select
+            id="ai-model-fetch"
+            className="text-input"
+            style={{ flex: 1 }}
+            value=""
+            onChange={(event) => {
+              if (event.target.value) {
+                setModelId(event.target.value);
+                event.target.value = "";
+              }
+            }}
+          >
+            <option value="">{models.length > 0 ? "选择自动获取的模型…" : "（未获取）"}</option>
+            {models.map((m) => (
+              <option key={m} value={m}>
+                {m}
+              </option>
+            ))}
+          </select>
+          <button
+            type="button"
+            className="btn option-btn"
+            onClick={() => void loadModels()}
+            disabled={modelFetching}
+          >
+            {modelFetching ? "获取中…" : "获取模型"}
+          </button>
+        </div>
+        <p className="fineprint dim">
+          从 Base URL 的 <code>/models</code> 端点获取。获取失败不会阻断手动填写——直接在上方模型框输入即可。
+        </p>
+        {modelFetchZh && (
+          <p className={modelFetchZh.startsWith("找到") ? "dim" : "notice"}>{modelFetchZh}</p>
         )}
 
         <button type="button" className="btn btn-primary btn-block" onClick={save}>

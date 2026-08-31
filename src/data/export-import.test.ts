@@ -1,6 +1,11 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { SCHEMA_VERSION, db } from "@/data/db";
-import { exportAllData, importAllData, validateEnvelope } from "@/data/export-import";
+import {
+  exportAllData,
+  importAllData,
+  importFromFile,
+  validateEnvelope,
+} from "@/data/export-import";
 
 async function seedSampleData(): Promise<void> {
   await db.settings.put({ key: "app", value: { dailyMinutesTarget: 120 } });
@@ -91,6 +96,36 @@ describe("import/export layer", () => {
 
   it("rejects envelopes without a numeric schemaVersion", () => {
     expect(() => validateEnvelope({ data: {} })).toThrowError(/schemaVersion/);
+  });
+
+  it("importFromFile restores from a real JSON file blob (round-trip)", async () => {
+    const envelope = await exportAllData();
+    const file = new File([JSON.stringify(envelope)], "backup.json", {
+      type: "application/json",
+    });
+
+    await Promise.all(db.tables.map((table) => table.clear()));
+    expect(await db.learningEvents.count()).toBe(0);
+
+    const summary = await importFromFile(file);
+    expect(summary.importedPerTable["learningEvents"]).toBe(2);
+    expect(await db.learningEvents.get("e1")).toMatchObject({ skill: "reading" });
+  });
+
+  it("importFromFile rejects invalid JSON without touching current data", async () => {
+    const before = await db.learningEvents.count();
+    const file = new File(["{not valid json"], "bad.json", { type: "application/json" });
+
+    await expect(importFromFile(file)).rejects.toThrowError(/不是合法的 JSON/);
+    expect(await db.learningEvents.count()).toBe(before);
+  });
+
+  it("importFromFile rejects a newer-schema file without wiping data", async () => {
+    const bad = { schemaVersion: SCHEMA_VERSION + 1, data: {} };
+    const file = new File([JSON.stringify(bad)], "new.json", { type: "application/json" });
+
+    await expect(importFromFile(file)).rejects.toThrowError(/升级应用/);
+    expect(await db.learningEvents.count()).toBeGreaterThan(0);
   });
 });
 

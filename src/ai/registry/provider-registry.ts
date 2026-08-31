@@ -204,7 +204,7 @@ export function buildAdapter(input: BuildAdapterInput): IAiProvider {
   const apiKey = input.apiKey.trim();
   const headers = input.customHeaders;
 
-  let protocol = input.protocol ?? def.protocol;
+  const protocol = input.protocol ?? def.protocol;
   if (protocol === "responses" && !def.allowResponses) {
     throw new AiAdapterError(
       `「${def.nameZh}」不支持 Responses 协议，将使用 ${def.protocol}。`,

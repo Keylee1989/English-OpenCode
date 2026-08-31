@@ -204,6 +204,28 @@ export function validateEnvelope(value: unknown): ExportEnvelope {
   return envelope as ExportEnvelope;
 }
 
+/**
+ * Restore from an exported file blob. Reads the text, parses JSON, validates
+ * the envelope, and restores atomically inside `importAllData` (a single
+ * IndexedDB transaction so a mid-way failure cannot corrupt current data).
+ * Returns the import summary.
+ *
+ * Everything is local-first: no network, no server, no telemetry. Blobs in the
+ * envelope (speaking attempt audio) round-trip losslessly through the tagged
+ * data-URL encoding in `importAllData`.
+ */
+export async function importFromFile(file: File | Blob): Promise<ImportSummary> {
+  const text = await file.text();
+  let raw: unknown;
+  try {
+    raw = JSON.parse(text);
+  } catch {
+    throw new Error("导入文件不是合法的 JSON，已取消恢复，未改动任何数据。");
+  }
+  validateEnvelope(raw);
+  return await importAllData(raw);
+}
+
 export async function importAllData(raw: unknown): Promise<ImportSummary> {
   const envelope = validateEnvelope(raw);
   const importedPerTable: Record<string, number> = {};

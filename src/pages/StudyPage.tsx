@@ -370,7 +370,7 @@ function ExerciseRunner({
             <button
               type="button"
               className="btn btn-primary"
-              onClick={() => void speakEn(exercise.speakText)}
+              onClick={() => void speakEn(exercise.speakText).catch(() => undefined)}
             >
               ▶ 播放单词
             </button>
@@ -395,7 +395,7 @@ function ExerciseRunner({
             <button
               type="button"
               className="btn btn-primary"
-              onClick={() => void speakEn(exercise.speakText)}
+              onClick={() => void speakEn(exercise.speakText).catch(() => undefined)}
             >
               ▶ 播放句子
             </button>
@@ -506,7 +506,7 @@ function ExerciseRunner({
             <button
               type="button"
               className="btn btn-primary"
-              onClick={() => void speakEn(exercise.en)}
+              onClick={() => void speakEn(exercise.en).catch(() => undefined)}
             >
               ▶ 播放示范
             </button>
@@ -542,7 +542,7 @@ function ExerciseRunner({
             <button
               type="button"
               className="btn btn-primary"
-              onClick={() => void speakEn(exercise.speakText)}
+              onClick={() => void speakEn(exercise.speakText).catch(() => undefined)}
             >
               ▶ 播放
             </button>

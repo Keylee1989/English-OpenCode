@@ -418,3 +418,82 @@ export function describeAiError(err: unknown, name: string): string {
   }
   return `${name} 连接失败：${message.slice(0, 200)}`;
 }
+
+/**
+ * Optional model auto-fetch from an OpenAI-compatible /models endpoint.
+ *
+ * Requirements:
+ * - NON-BLOCKING: on any failure it returns { ok:false, ... } — it never throws,
+ *   so a failed fetch cannot prevent the user from manually typing a model.
+ * - NEVER reveals the API key in the error text.
+ * - Used only when the provider supports the standard `GET {baseUrl}/models`
+ *   endpoint; otherwise the UI falls back to manual model entry.
+ */
+export async function fetchModels(opts: {
+  baseUrl: string;
+  apiKey: string;
+  headers?: Record<string, string>;
+  signal?: AbortSignal;
+}): Promise<{ ok: true; models: string[] } | { ok: false; messageZh: string }> {
+  const base = opts.baseUrl.trim().replace(/\/+$/, "");
+  if (!base) {
+    return { ok: false, messageZh: "请先填写 Base URL 再获取模型列表。" };
+  }
+  if (!opts.apiKey.trim()) {
+    return { ok: false, messageZh: "请先填写 API Key 再获取模型列表。" };
+  }
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 20_000);
+    let response: Response;
+    try {
+      response = await fetch(`${base}/models`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${opts.apiKey.trim()}`,
+          ...(opts.headers ?? {}),
+        },
+        signal: opts.signal ?? controller.signal,
+      });
+    } finally {
+      clearTimeout(timer);
+    }
+    if (!response.ok) {
+      const status = response.status;
+      return {
+        ok: false,
+        messageZh:
+          status === 401 || status === 403
+            ? `获取模型失败：认证错误（HTTP ${status}），API Key 无效。`
+            : status === 404
+              ? "获取模型失败：该服务不支持 /models 端点（HTTP 404）。请手动填写模型名。"
+              : status >= 400 && status < 500
+                ? `获取模型失败：请求被拒绝（HTTP ${status}）。请手动填写模型名。`
+                : `获取模型失败：服务端错误（HTTP ${status}）。请手动填写模型名。`,
+      };
+    }
+    const data = (await response.json()) as { data?: Array<{ id?: unknown }> };
+    const models = Array.isArray(data.data)
+      ? data.data
+          .map((item) => (typeof item?.id === "string" ? item.id : ""))
+          .filter((id) => id.length > 0)
+      : [];
+    if (models.length === 0) {
+      return { ok: false, messageZh: "获取模型失败：接口未返回模型列表。请手动填写模型名。" };
+    }
+    return { ok: true, models };
+  } catch (err) {
+    if (err instanceof Error && err.name === "AbortError") {
+      return { ok: false, messageZh: "获取模型失败：请求超时（20 秒）。请手动填写模型名。" };
+    }
+    const message = err instanceof Error ? err.message : String(err);
+    if (err instanceof TypeError || /CORS|Network error contacting/i.test(message)) {
+      return {
+        ok: false,
+        messageZh:
+          "获取模型失败：网络或 CORS 错误（该服务可能不允许浏览器直接跨域访问）。请手动填写模型名。",
+      };
+    }
+    return { ok: false, messageZh: `获取模型失败：${message.slice(0, 160)}。请手动填写模型名。` };
+  }
+}

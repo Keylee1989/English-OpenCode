@@ -16,7 +16,7 @@ import {
   getRecentErrors,
   type ErrorLogEntry,
 } from "@/core/error-log";
-import { exportAllData } from "@/data/export-import";
+import { exportAllData, importFromFile } from "@/data/export-import";
 
 const BETA_KIND_ZH: Record<string, string> = {
   "session-start": "开始学习会话",
@@ -110,6 +110,10 @@ export default function StatusPage() {
     includeErrorLog: false,
   });
   const [exportDoneZh, setExportDoneZh] = useState<string | null>(null);
+  const [importState, setImportState] = useState<{
+    phase: "idle" | "picked" | "restoring" | "done" | "error";
+    messageZh: string | null;
+  }>({ phase: "idle", messageZh: null });
 
   useEffect(() => {
     void getStudyMode().then(setStudyModeState);
@@ -134,6 +138,54 @@ export default function StatusPage() {
     setExportDoneZh(
       `已导出备份文件。${skipped.length > 0 ? `未包含：${skipped.join("、")}。` : ""}`,
     );
+  };
+
+  const handleImportFile = async (file: File): Promise<void> => {
+    // Require an explicit confirm; the file is parsed only after approval.
+    const fileText = file.name || "备份";
+    const confirmed = window.confirm(
+      `确认从「${fileText}」恢复？\n\n恢复会用备份内容覆盖当前的全部本地学习数据。\n\n恢复前会自动导出当前数据的备份文件。`,
+    );
+    if (!confirmed) {
+      setImportState({ phase: "idle", messageZh: null });
+      return;
+    }
+
+    setImportState({ phase: "restoring", messageZh: null });
+    try {
+      // Safety: back up current data before overwriting.
+      const backup = await exportAllData(exportOpts);
+      const backupUrl = URL.createObjectURL(
+        new Blob([JSON.stringify(backup, null, 2)], { type: "application/json" }),
+      );
+      const backupLink = document.createElement("a");
+      backupLink.href = backupUrl;
+      backupLink.download = `english360-before-import-${new Date().toISOString().slice(0, 10)}.json`;
+      backupLink.click();
+      URL.revokeObjectURL(backupUrl);
+
+      const summary = await importFromFile(file);
+      setImportState({
+        phase: "done",
+        messageZh: `导入成功：${Object.entries(summary.importedPerTable)
+          .map(([table, count]) => `${table} ${count} 条`)
+          .join("，")}。已自动导出恢复前的备份。`,
+      });
+      setStorage(await probeStorage());
+    } catch (error) {
+      setImportState({
+        phase: "error",
+        messageZh: `导入失败，当前数据未受影响：${
+          error instanceof Error ? error.message : String(error)
+        }`,
+      });
+    }
+  };
+
+  const pickImportFile = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const file = event.target.files?.[0];
+    if (file) void handleImportFile(file);
+    event.target.value = "";
   };
 
   const flipStudyMode = async (): Promise<void> => {
@@ -304,6 +356,38 @@ export default function StatusPage() {
           {exportDoneZh && (
             <p className="fineprint" style={{ marginTop: 6 }}>
               {exportDoneZh}
+            </p>
+          )}
+        </div>
+
+        <div className="status-card">
+          <h2>数据导入 / 恢复</h2>
+          <p className="fineprint" style={{ margin: "4px 0 8px" }}>
+            local-first 数据恢复能力：选择先前导出的 JSON 备份文件即可恢复。恢复会<strong>覆盖</strong>
+            当前全部学习数据，因此导入前会自动导出当前数据的备份文件，并重建本地数据库。
+          </p>
+          <label className="btn option-btn btn-block" style={{ textAlign: "center" }}>
+            选择备份文件（JSON）
+            <input
+              type="file"
+              accept="application/json,.json"
+              style={{ display: "none" }}
+              onChange={pickImportFile}
+            />
+          </label>
+          {importState.phase === "restoring" && (
+            <p className="dim" style={{ marginTop: 6 }}>
+              正在导入并重建数据库…
+            </p>
+          )}
+          {importState.phase === "done" && (
+            <p className="fineprint" style={{ marginTop: 6, color: "var(--ok)" }}>
+              {importState.messageZh}
+            </p>
+          )}
+          {importState.phase === "error" && (
+            <p className="notice" style={{ marginTop: 6 }}>
+              {importState.messageZh}
             </p>
           )}
         </div>
