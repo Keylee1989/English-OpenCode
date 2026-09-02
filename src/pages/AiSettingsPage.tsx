@@ -300,14 +300,36 @@ export default function AiSettingsPage() {
         )}
 
         <label className="fineprint" htmlFor="ai-model">模型（Model）：</label>
-        <input
-          id="ai-model"
-          type="text"
-          className="text-input"
-          value={modelId}
-          placeholder={definition.defaultModelId || "输入模型名，例如 xxx-model"}
-          onChange={(event) => setModelId(event.target.value)}
-        />
+        <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+          <input
+            id="ai-model"
+            type="text"
+            list="ai-model-candidates"
+            className="text-input"
+            style={{ flex: 1 }}
+            value={modelId}
+            placeholder={definition.defaultModelId || "输入模型名，例如 gpt-xxx"}
+            autoComplete="off"
+            spellCheck={false}
+            onChange={(event) => setModelId(event.target.value)}
+          />
+          <button
+            type="button"
+            className="btn option-btn"
+            onClick={() => void loadModels()}
+            disabled={modelFetching}
+          >
+            {modelFetching ? "获取中…" : "获取模型"}
+          </button>
+        </div>
+        <datalist id="ai-model-candidates">
+          {models.map((m) => (
+            <option key={m} value={m} />
+          ))}
+        </datalist>
+        <p className="fineprint dim">
+          可直接输入任意模型名；也可点「获取模型」后点输入框右下角下拉箭头，从候选模型中选择，选中的值会写入这个同一输入框，之后仍可手动编辑。获取失败不影响手动输入。
+        </p>
 
         {definition.editableBaseUrl && (
           <>
@@ -342,25 +364,25 @@ export default function AiSettingsPage() {
         </select>
 
         <label className="fineprint" htmlFor="ai-key">API Key：</label>
-        <div style={{ display: "flex", gap: "0.5rem" }}>
-          <input
-            id="ai-key"
-            type={showKey ? "text" : "password"}
-            className="text-input"
-            value={apiKey}
-            autoComplete="off"
-            spellCheck={false}
-            placeholder={`输入 ${definition.nameZh} 的 API Key`}
-            onChange={(event) => setApiKey(event.target.value)}
-            style={{ flex: 1 }}
-          />
+        <input
+          id="ai-key"
+          type={showKey ? "text" : "password"}
+          className="text-input"
+          value={apiKey}
+          autoComplete="off"
+          spellCheck={false}
+          placeholder={`输入 ${definition.nameZh} 的 API Key`}
+          onChange={(event) => setApiKey(event.target.value)}
+          style={{ width: "100%" }}
+        />
+        <div style={{ display: "flex", gap: "0.5rem", marginTop: 6 }}>
           <button
             type="button"
             className="btn option-btn"
             onClick={() => setShowKey((s) => !s)}
             aria-label={showKey ? "隐藏 Key" : "显示 Key"}
           >
-            {showKey ? "隐藏" : "显示"}
+            {showKey ? "隐藏 Key" : "显示 Key"}
           </button>
           {apiKey.length > 0 && (
             <button
@@ -369,7 +391,7 @@ export default function AiSettingsPage() {
               onClick={() => setApiKey("")}
               aria-label="清除 Key"
             >
-              清除
+              清除 Key
             </button>
           )}
         </div>
@@ -410,41 +432,6 @@ export default function AiSettingsPage() {
           </>
         )}
 
-        <label className="fineprint" htmlFor="ai-model-fetch">
-          模型列表（可选，自动获取）：
-        </label>
-        <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
-          <select
-            id="ai-model-fetch"
-            className="text-input"
-            style={{ flex: 1 }}
-            value=""
-            onChange={(event) => {
-              if (event.target.value) {
-                setModelId(event.target.value);
-                event.target.value = "";
-              }
-            }}
-          >
-            <option value="">{models.length > 0 ? "选择自动获取的模型…" : "（未获取）"}</option>
-            {models.map((m) => (
-              <option key={m} value={m}>
-                {m}
-              </option>
-            ))}
-          </select>
-          <button
-            type="button"
-            className="btn option-btn"
-            onClick={() => void loadModels()}
-            disabled={modelFetching}
-          >
-            {modelFetching ? "获取中…" : "获取模型"}
-          </button>
-        </div>
-        <p className="fineprint dim">
-          从 Base URL 的 <code>/models</code> 端点获取。获取失败不会阻断手动填写——直接在上方模型框输入即可。
-        </p>
         {modelFetchZh && (
           <p className={modelFetchZh.startsWith("找到") ? "dim" : "notice"}>{modelFetchZh}</p>
         )}

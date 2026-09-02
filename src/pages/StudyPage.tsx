@@ -30,6 +30,7 @@ import {
 } from "@/engines/errors/error-analysis-v0";
 import { explainWordZh } from "@/phonics/decode";
 import { isSpeechSupported, speakEn, stopSpeaking } from "@/speech/tts";
+import { ShadowingRecorder } from "@/components/ShadowingRecorder";
 import type { Exercise, ExerciseAnswer } from "@/study/exercise-types";
 import { getActiveAiProvider, isAiReady } from "@/ai/runtime";
 import { evaluateWriting, type WritingEvaluation } from "@/ai/tutor-service";
@@ -498,40 +499,12 @@ function ExerciseRunner({
     }
     case "shadowing":
       return (
-        <div className="card">
-          <p className="ex-kicker">跟读任务（自评）</p>
-          <h3>{exercise.en}</h3>
-          <p className="dim">{exercise.zh}</p>
-          <div className="listen-play">
-            <button
-              type="button"
-              className="btn btn-primary"
-              onClick={() => void speakEn(exercise.en).catch(() => undefined)}
-            >
-              ▶ 播放示范
-            </button>
-          </div>
-          <p className="fineprint">
-            自动口语评分需要语音服务，当前版本未接入——请大声跟读后自评。自评只作低权重证据，
-            不会冒充真实评分。
-          </p>
-          <div className="row-2">
-            <button
-              type="button"
-              className="btn option-btn"
-              onClick={() => finishWith({ kind: "self-rated-able" })}
-            >
-              我读出来了
-            </button>
-            <button
-              type="button"
-              className="btn option-btn"
-              onClick={() => finishWith({ kind: "self-rated-unable" })}
-            >
-              还不行
-            </button>
-          </div>
-        </div>
+        <ShadowingRecorder
+          en={exercise.en}
+          zh={exercise.zh}
+          itemKey={exercise.id}
+          onSelfRated={(answer) => finishWith(answer)}
+        />
       );
     case "phonics-discriminate":
       return (
