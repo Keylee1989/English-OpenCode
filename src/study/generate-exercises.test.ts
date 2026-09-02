@@ -108,6 +108,28 @@ describe("grading rules", () => {
     ).toBe(true);
   });
 
+  it("never lets a fill-blank answer duplicate a token already in the template (e.g. 'I'm I'm Lin')", () => {
+    for (const day of [1, 2, 3, 4, 5, 7, 30, 90, 180, 360]) {
+      const content = getDayContent(day);
+      if (!content) continue;
+      for (const exercise of buildPracticeExercises(content, { audioAvailable: false })) {
+        if (exercise.type !== "fill-blank") continue;
+        const full = exercise.template.replace("___", exercise.answer);
+        const tokens = full
+          .toLowerCase()
+          .replace(/[.,!?'’]/g, " ")
+          .split(/\s+/)
+          .filter(Boolean);
+        const dup = tokens.filter((token, i) => tokens.indexOf(token) !== i);
+        if (dup.length > 0) {
+          throw new Error(
+            `day ${day}: fill-blank '${full}' repeats token(s): ${[...new Set(dup)].join(", ")}`,
+          );
+        }
+      }
+    }
+  });
+
   it("judges listen-judge semantics on both branches", () => {
     const same: Exercise = {
       id: "t-lj-0",

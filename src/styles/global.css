@@ -516,10 +516,14 @@ a.btn {
 
 .bottom-nav a {
   flex: 1;
+  min-width: 0;
   text-align: center;
   text-decoration: none;
   color: var(--text-dim);
-  font-size: 0.85rem;
+  font-size: 0.72rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   padding: 6px 0;
 }
 

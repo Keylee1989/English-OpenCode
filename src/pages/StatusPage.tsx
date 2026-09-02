@@ -446,6 +446,9 @@ export default function StatusPage() {
               （{implementedCount}/{ENGINE_REGISTRY.length} 已开工）
             </span>
           </h2>
+          <p className="notice" style={{ margin: "6px 0 12px", fontSize: "0.82rem" }}>
+            语音说明：TTS 朗读（听力题、跟读示范）为真实功能；"自动发音/口语评分"需录制麦克风并打分的语音服务，当前未接入，只做自评（低权重证据，不冒充真实评分）。
+          </p>
           {[learningAndAi, infrastructure].map((group, groupIndex) => (
             <ul className="engine-list" key={groupIndex}>
               {group.map((engine) => (

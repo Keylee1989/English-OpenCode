@@ -91,11 +91,24 @@ describe("AI usage budget (Phase 12 P0-2)", () => {
 
   it("only counts tokens from the current day/month windows", async () => {
     await setAiBudgetConfig({ dailySoftLimit: 1000, monthlySoftLimit: 100000 });
-    const now = Date.now();
+    // Deterministic window arithmetic: never assume a fixed day offset from
+    // "now", otherwise this test flakes on the 1st-2nd of a month when a
+    // N-days-ago timestamp crosses a calendar-month boundary.
+    const now = new Date();
+    // A timestamp guaranteed to be in the current calendar month, before today.
+    const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+    const earlierThisMonth = Math.min(
+      now.getTime() - 86400000,
+      monthStart.getTime() + 2 * 86400000,
+    );
+    // A timestamp guaranteed to be in a previous calendar month entirely.
+    const lastMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1, 12);
+    const todayMs = now.getTime() - 3600000; // 1 hour ago, still today
+
     await recordAiUsage({
       provider: "p",
       model: "m",
-      timestamp: now - 40 * 86400000, // last month
+      timestamp: lastMonth.getTime(), // previous month -> must be excluded
       feature: "explanation",
       tokens: 999999,
       ok: true,
@@ -103,7 +116,7 @@ describe("AI usage budget (Phase 12 P0-2)", () => {
     await recordAiUsage({
       provider: "p",
       model: "m",
-      timestamp: now - 2 * 86400000, // earlier this month
+      timestamp: earlierThisMonth, // earlier this month -> counted
       feature: "explanation",
       tokens: 300,
       ok: true,
@@ -111,12 +124,12 @@ describe("AI usage budget (Phase 12 P0-2)", () => {
     await recordAiUsage({
       provider: "p",
       model: "m",
-      timestamp: now - 3600000, // today
+      timestamp: todayMs, // today -> counted
       feature: "explanation",
       tokens: 100,
       ok: true,
     });
-    const status = await getAiBudgetStatus(new Date(now));
+    const status = await getAiBudgetStatus(now);
     expect(status.daily.usedTokens).toBe(100);
     expect(status.monthly.usedTokens).toBe(400); // excludes last month
     expect(status.monthly.level).toBe("ok");

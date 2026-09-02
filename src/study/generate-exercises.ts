@@ -147,7 +147,7 @@ function buildListenWord(id: string, target: VocabEntry, pool: readonly VocabEnt
 
 function buildFillBlank(dayNumber: number, index: number): Exercise | null {
   const fills: Array<{ template: string; answer: string; zh: string }> = [
-    { template: "I'm ___. (介绍自己叫林)", answer: "I'm Lin", zh: "我是林。" },
+    { template: "I'm ___. (介绍自己叫林)", answer: "Lin", zh: "我是林。" },
     { template: "My name ___ Li Na.", answer: "is", zh: "我的名字叫李娜。" },
     { template: "___ old are you?", answer: "How", zh: "你多大了？" },
     { template: "This is my ___. (妈妈)", answer: "mom", zh: "这是我妈妈。" },
