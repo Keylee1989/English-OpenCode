@@ -306,7 +306,7 @@ export default function AiSettingsPage() {
             type="text"
             list="ai-model-candidates"
             className="text-input"
-            style={{ flex: 1 }}
+            style={{ flex: 1, minWidth: 0 }}
             value={modelId}
             placeholder={definition.defaultModelId || "输入模型名，例如 gpt-xxx"}
             autoComplete="off"
@@ -315,7 +315,7 @@ export default function AiSettingsPage() {
           />
           <button
             type="button"
-            className="btn option-btn"
+            className="model-fetch-btn"
             onClick={() => void loadModels()}
             disabled={modelFetching}
           >
@@ -328,7 +328,7 @@ export default function AiSettingsPage() {
           ))}
         </datalist>
         <p className="fineprint dim">
-          可直接输入任意模型名；也可点「获取模型」后点输入框右下角下拉箭头，从候选模型中选择，选中的值会写入这个同一输入框，之后仍可手动编辑。获取失败不影响手动输入。
+          模型就填写在这个框里：可直接输入任意模型名；点「获取模型」后，再点在输入框上弹出的下拉箭头即可从候选模型里选中。两者共用同一个框，选择后仍可继续修改。
         </p>
 
         {definition.editableBaseUrl && (

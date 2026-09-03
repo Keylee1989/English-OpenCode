@@ -35,6 +35,8 @@ export interface UseRecorderResult {
   audioUrl: string | null;
   recordedBlob: Blob | null;
   durationMs: number;
+  /** Live elapsed milliseconds observed while currently recording (0 when idle/stopped). */
+  elapsedMs: number;
   error: string | null;
   supported: boolean;
   start: () => Promise<void>;
@@ -78,6 +80,7 @@ export function useRecorder(
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
   const [recordedBlob, setRecordedBlob] = useState<Blob | null>(null);
   const [durationMs, setDurationMs] = useState(0);
+  const [elapsedMs, setElapsedMs] = useState(0);
   const [error, setError] = useState<string | null>(null);
 
   const recRef = useRef<MediaRecorder | null>(null);
@@ -98,6 +101,22 @@ export function useRecorder(
       objectUrlRef.current = null;
     }
   }, [d]);
+
+  // Live elapsed timer shown while recording ("录音中 · N 秒").
+  useEffect(() => {
+    if (status !== "recording") {
+      setElapsedMs(0);
+      return;
+    }
+    const tick = (): void => {
+      if (startedAtRef.current > 0) {
+        setElapsedMs(Math.max(0, Date.now() - startedAtRef.current));
+      }
+    };
+    tick();
+    const id = window.setInterval(tick, 250);
+    return () => window.clearInterval(id);
+  }, [status]);
 
   useEffect(() => {
     return () => {
@@ -126,6 +145,7 @@ export function useRecorder(
     if (recRef.current) return; // prevent duplicate MediaRecorder
     setError(null);
     setDurationMs(0);
+    setElapsedMs(0);
     try {
       const stream = await d.getUserMedia({ audio: true });
       streamRef.current = stream;
@@ -190,5 +210,16 @@ export function useRecorder(
     streamRef.current = null;
   }, [releaseUrl]);
 
-  return { status, audioUrl, recordedBlob, durationMs, error, supported, start, stop, reset };
+  return {
+    status,
+    audioUrl,
+    recordedBlob,
+    durationMs,
+    elapsedMs,
+    error,
+    supported,
+    start,
+    stop,
+    reset,
+  };
 }

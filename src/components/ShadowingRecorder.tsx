@@ -3,12 +3,14 @@
  * 跟读 exercises (StudyPage shadowing case).
  *
  * Honesty contract:
- *  - 播放示范 plays REAL TTS; no fake audio.
+ *  - 播放示范 plays REAL TTS (auto-played once on entry; manual button stays).
  *  - 开始录音 requests the microphone and records the learner's own voice
- *    (no fake/no-op acknowledgement of permission).
+ *    (no fake/no-op acknowledgement of permission); a live "录音中 · N 秒"
+ *    timer is shown, then 停止录音 finalizes the clip.
  *  - We only capture + replay local audio. There is NO automatic pronunciation
  *    score - grading stays the learner's explicit SELF rating (low-weight
- *    evidence), saved through the existing `speakingAttempts` schema.
+ *    evidence), saved through the existing `speakingAttempts` schema. The
+ *    on-screen copy states this honestly when no AI scoring service is active.
  *  - iOS Safari: MIME type is probed (`pickAudioMime`), Blob URLs released on
  *    re-record/unmount, recorder/mic tracks stopped on unmount.
  *  - Permission denial is surfaced, never pretended to have recorded.
@@ -47,7 +49,7 @@ export function ShadowingRecorder({ en, zh, itemKey, onSelfRated, recorderDeps }
     });
   }, [itemKey, en]));
 
-  const { status, audioUrl, durationMs, error, supported, start, stop, reset } = recorder;
+  const { status, audioUrl, durationMs, elapsedMs, error, supported, start, stop, reset } = recorder;
 
   // Clean up the local <audio> element + stop playback on unmount.
   useEffect(() => {
@@ -56,6 +58,15 @@ export function ShadowingRecorder({ en, zh, itemKey, onSelfRated, recorderDeps }
       audioRef.current = null;
     };
   }, []);
+
+  // Auto-play the English prompt once on entering this question, so the user
+  // immediately hears the sentence. A manual 播放示范 button stays available.
+  const autoPlayedRef = useRef(false);
+  useEffect(() => {
+    if (autoPlayedRef.current) return;
+    autoPlayedRef.current = true;
+    void speakEn(en).catch(() => undefined);
+  }, [en]);
 
   // Keep <audio> in sync with a fresh recording.
   useEffect(() => {
@@ -81,9 +92,14 @@ export function ShadowingRecorder({ en, zh, itemKey, onSelfRated, recorderDeps }
 
   return (
     <div className="card">
-      <p className="ex-kicker">跟读任务（真实录音 + 自评）</p>
+      <p className="ex-kicker">跟读任务（听 → 跟读 → 录音 → 回放）</p>
       <h3>{en}</h3>
       <p className="dim">{zh}</p>
+
+      <p className="fineprint" style={{ marginTop: 4 }}>
+        请跟读：
+        <strong> “{en}”</strong>
+      </p>
 
       <div className="listen-play">
         <button
@@ -120,8 +136,13 @@ export function ShadowingRecorder({ en, zh, itemKey, onSelfRated, recorderDeps }
         )}
       </div>
 
+      {recording && (
+        <p className="notice" style={{ marginTop: 8 }}>
+          🎙 录音中 · {Math.max(1, Math.round(elapsedMs / 1000))} 秒 —— 请大声跟读。
+        </p>
+      )}
       {status === "recorded" && durationMs > 0 && (
-        <p className="fineprint dim">已录音 {seconds} 秒（仅本机播放，不做自动评分）</p>
+        <p className="fineprint dim">已录音 {seconds} 秒（仅本机播放；可重新录音。）</p>
       )}
       {status === "unsupported" && (
         <p className="notice">当前浏览器不支持录音。你仍可跟读，并直接自评完成本练习。</p>
@@ -131,7 +152,7 @@ export function ShadowingRecorder({ en, zh, itemKey, onSelfRated, recorderDeps }
         <p className="fineprint">当前浏览器/设备不支持录音；仍可播放示范并跟读自评。</p>
       )}
       <p className="fineprint">
-        录音只用于你听自己的回放，系统不自动打分发音。请在听完后如实自评——自评只作低权重证据。
+        当前未启用自动发音评分。你的录音会保存为学习记录，自评仅作为低权重学习证据。
       </p>
 
       <p className="fineprint">录音完成(或不录)后，请如实自评本次跟读：</p>
@@ -173,7 +194,7 @@ export function ShadowingRecorder({ en, zh, itemKey, onSelfRated, recorderDeps }
           className="btn option-btn"
           onClick={() => onSelfRated({ kind: "self-rated-unable" })}
         >
-          还不行
+          还不太会
         </button>
       </div>
     </div>

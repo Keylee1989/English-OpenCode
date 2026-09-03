@@ -104,6 +104,23 @@ describe("useRecorder", () => {
     expect(FakeMediaRecorder.lastInstance?.mimeType).toBe("audio/webm;codecs=opus");
   });
 
+  it("tracks a live elapsedMs while recording (timer for 录音中 · N 秒)", async () => {
+    const { hook } = setup();
+    expect(hook.result.current.status).toBe("idle");
+    expect(hook.result.current.elapsedMs).toBe(0);
+    await act(async () => {
+      await hook.result.current.start();
+    });
+    expect(hook.result.current.status).toBe("recording");
+    expect(typeof hook.result.current.elapsedMs).toBe("number");
+    // durationMs is only finalized after stop; elapsedMs is the live ticker.
+    expect(hook.result.current.durationMs).toBe(0);
+    act(() => hook.result.current.stop());
+    expect(hook.result.current.status).toBe("recorded");
+    act(() => hook.result.current.reset());
+    expect(hook.result.current.elapsedMs).toBe(0);
+  });
+
   it("guards against a second start while already recording (no duplicate recorder)", async () => {
     const { hook } = setup();
     await act(async () => {
